@@ -1,0 +1,18 @@
+# TODO (owner): replace the placeholder description (see fi/fight.yaml)
+kind: project
+order: 2
+accent: fight
+slug: projects/fight
+name: Luja Fight
+label: Combat sports
+title: Luja Fight – combat sports
+description: Luja Fight is Lujamo's combat sports division.
+summary: Luja Fight is Lujamo's combat sports division, working with clubs and athletes. A fuller description of what we do will be published soon.
+intro:
+  heading: Combat sports, with the same solid grip.
+  lead: Luja Fight is Lujamo's combat sports division. A fuller description of its work is in progress and will be published on this page soon.
+blocks:
+  - type: cta
+    heading: Are you a club or an athlete?
+    text: If you would like to hear about Luja Fight already, send us a message. We will reply directly.
+    topic: fight

@@ -1,0 +1,168 @@
+---
+/**
+ * Lujamo's own projects. `compact` = short reference tiles (front page,
+ * service page); otherwise larger entries with key facts (Projects page).
+ */
+import type { Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { accentStyle, unitPath, type Unit } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  projects: Unit[];
+  compact?: boolean;
+  headingLevel?: 2 | 3;
+}
+const { lang, projects, compact = false, headingLevel = 3 } = Astro.props;
+const t = useTranslations(lang);
+const Heading = `h${headingLevel}` as 'h2' | 'h3';
+---
+
+<ul class:list={['projects', { 'projects--compact': compact }]} role="list">
+  {
+    projects.map((p) => (
+      <li class="project" style={accentStyle(p.accent)}>
+        <p class="project__label">{p.label}</p>
+        <Heading class="project__name">
+          <a href={unitPath(p, lang)}>{p.name}</a>
+        </Heading>
+        <p class="project__summary">{p.summary}</p>
+        {!compact && p.facts && (
+          <ul class="project__facts" role="list">
+            {p.facts.map((f) => (
+              <li>{f}</li>
+            ))}
+          </ul>
+        )}
+        <span class="link-arrow project__more" aria-hidden="true">
+          {t('common.readMore')}
+        </span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m);
+    max-width: none;
+    padding: 0;
+    list-style: none;
+  }
+
+  .project {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-l);
+    border-radius: var(--radius-l);
+    background: var(--pinta);
+    box-shadow: 0 1px 2px rgb(20 40 30 / 0.05);
+    transition:
+      box-shadow 200ms,
+      transform 200ms var(--ease-out);
+  }
+
+  /* on white bands the tiles take the paper colour so they stay visible */
+  :global(.band-white) .project {
+    background: var(--kallio);
+  }
+
+  /* the whole tile is clickable through the heading link */
+  .project:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .project__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--teras);
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+
+  .project__label::before {
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .project__name {
+    margin-top: var(--space-2xs);
+    font-size: var(--step-3);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .project__name a {
+    text-decoration: none;
+  }
+
+  .project__name a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .project__summary {
+    margin-top: var(--space-xs);
+    color: var(--teras);
+  }
+
+  .project__facts {
+    display: grid;
+    gap: 0.4rem;
+    margin-top: var(--space-m);
+    padding: 0;
+    list-style: none;
+    font-weight: 600;
+    font-size: var(--step--1);
+  }
+
+  .project__facts li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .project__facts li::before {
+    content: '';
+    flex: none;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--sammal);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--sammal) 35%, transparent);
+  }
+
+  .project__more {
+    margin-top: auto;
+    padding-top: var(--space-s);
+    color: var(--metsa);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+
+  .project:has(a:focus-visible) {
+    outline: 2px solid var(--metsa);
+    outline-offset: 3px;
+  }
+
+  .project a:focus-visible {
+    outline: none;
+  }
+
+  .projects--compact .project__summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

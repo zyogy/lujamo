@@ -1,0 +1,22 @@
+title: Lujamo – Lujia sovelluksia todellisiin tarpeisiin
+description: Lujamo on pieni suomalainen perheyritys. Kehitämme ihmislähtöisiä sovelluksia ja autamme ideoinnista julkaisuun ja jatkokehitykseen.
+hero:
+  heading: Lujia sovelluksia todellisiin tarpeisiin.
+  text: Lujamo on pieni suomalainen perheyritys, jonka ydinosaamista on sovelluskehitys. Suunnittelemme ja toteutamme ihmislähtöisiä sovelluksia ja digitaalisia ratkaisuja, jotka perustuvat todellisiin tarpeisiin ja tuovat käytännön hyötyä käyttäjilleen.
+  primary: Tutustu sovelluskehitykseen
+  secondary: Lujamon tarina
+  note: Yrityksen esittely
+  imageAlt: Pieni puu kasvaa graniittikalliolla meren rannalla auringonlaskun aikaan.
+statement: Paikka, jossa ideat muuttuvat toimiviksi sovelluksiksi.
+service:
+  heading: Ideasta julkaisuun ja jatkokehitykseen.
+  text: Sovelluskehityksen lisäksi tarjoamme ideointia, sparrausta ja konsultointia sekä projektien suunnittelua, vetämistä ja toteutusta. Voimme auttaa kehitystyön eri vaiheissa aina ensimmäisen idean kirkastamisesta toimivan sovelluksen julkaisuun ja jatkokehitykseen asti.
+  button: Tutustu sovelluskehitykseen
+projects:
+  eyebrow: Projektit
+  heading: Omia projektejamme
+  text: Kehitämme myös omia tuotteita, kuten turvallisuuteen ja varautumiseen suunnattua ValmiusTurva-sovellusta.
+  all: Kaikki projektit
+cta:
+  heading: Onko sinulla idea sovelluksesta? Keskustellaan.
+  button: Ota yhteyttä

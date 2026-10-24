@@ -1,0 +1,129 @@
+---
+/**
+ * Front page: about Lujamo as a company. App development is the main service;
+ * Lujamo's own projects appear only as short references (they have their own pages).
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceBand from '../components/ServiceBand.astro';
+import ValuesRow from '../components/ValuesRow.astro';
+import ProjectList from '../components/ProjectList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import type { Lang } from '../i18n/config';
+import { getPage, getProjects, getServices, pageAlternates, pagePath, unitPath } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const { entry, fallback } = await getPage(lang, 'home');
+const page = entry.data;
+// Values live on the about page so there is one source for them
+const about = (await getPage(lang, 'about')).entry.data;
+const [mainService] = await getServices(lang);
+const projects = await getProjects(lang);
+---
+
+<BaseLayout lang={lang} title={page.title} description={page.description} alternates={pageAlternates('home')} fallback={fallback}>
+  <div lang={fallback ? 'fi' : undefined}>
+    <Hero
+      heading={page.hero.heading}
+      text={page.hero.text}
+      primary={{ label: page.hero.primary, href: mainService ? unitPath(mainService, lang) : pagePath('contact', lang) }}
+      secondary={{ label: page.hero.secondary, href: pagePath('about', lang) }}
+      note={page.hero.note}
+      imageAlt={page.hero.imageAlt}
+    />
+
+    <div class="statement">
+      <div class="container">
+        <span class="statement__rule" aria-hidden="true"></span>
+        <p>{page.statement}</p>
+      </div>
+    </div>
+
+    {
+      mainService && (
+        <ServiceBand
+          lang={lang}
+          unit={mainService}
+          heading={page.service.heading}
+          text={page.service.text}
+          button={page.service.button}
+        />
+      )
+    }
+
+    <ValuesRow heading={about.values.heading} items={about.values.items} />
+
+    {
+      projects.length > 0 && (
+        <section class="band-white home-projects" aria-labelledby="home-projects">
+          <div class="container">
+            <div class="home-projects__head">
+              <div>
+                <p class="eyebrow">{page.projects.eyebrow}</p>
+                <h2 id="home-projects">{page.projects.heading}</h2>
+                <p class="home-projects__text">{page.projects.text}</p>
+              </div>
+              <a class="link-arrow" href={pagePath('projects', lang)}>
+                {page.projects.all}
+              </a>
+            </div>
+            <ProjectList lang={lang} projects={projects} compact />
+          </div>
+        </section>
+      )
+    }
+
+    <CtaBand lang={lang} heading={page.cta.heading} button={page.cta.button} />
+  </div>
+</BaseLayout>
+
+<style>
+  .statement {
+    padding-block: var(--space-xl) var(--space-2xl);
+    text-align: center;
+  }
+
+  .statement__rule {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin: 0 auto var(--space-m);
+    background: var(--sammal);
+  }
+
+  .statement p {
+    max-width: 30ch;
+    margin-inline: auto;
+    font-size: clamp(1.35rem, 1rem + 1.5vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  .home-projects {
+    padding-block: var(--space-2xl);
+  }
+
+  .home-projects__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-s) var(--space-xl);
+    margin-bottom: var(--space-l);
+  }
+
+  .home-projects h2 {
+    font-size: var(--step-4);
+  }
+
+  .home-projects__text {
+    margin-top: var(--space-xs);
+    color: var(--teras);
+  }
+
+</style>

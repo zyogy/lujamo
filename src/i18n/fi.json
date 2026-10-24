@@ -1,0 +1,81 @@
+{
+  "site": {
+    "description": "Lujamo on pieni suomalainen perheyritys. Kehitämme ihmislähtöisiä sovelluksia ja autamme ideoinnista julkaisuun ja jatkokehitykseen."
+  },
+  "a11y": {
+    "skip": "Siirry sisältöön",
+    "mainNav": "Päävalikko",
+    "languages": "Kielivalinta",
+    "currentLanguage": "valittu kieli",
+    "breadcrumb": "Sijainti sivustolla"
+  },
+  "nav": {
+    "home": "Lujamo, etusivu",
+    "menu": "Valikko",
+    "about": "Lujamon tarina",
+    "contact": "Yhteys",
+    "projects": "Projektit"
+  },
+  "lang": {
+    "hint": "Tämä sivu on saatavilla myös suomeksi.",
+    "hintLink": "Siirry suomenkieliseen sivuun",
+    "dismiss": "Sulje ilmoitus",
+    "fallback": "Tätä sivua ei ole vielä käännetty valitsemallesi kielelle. Alla on suomenkielinen versio."
+  },
+  "common": {
+    "contact": "Ota yhteyttä",
+    "readMore": "Lue lisää",
+    "illustration": "Havainnekuva, ei kuvakaappaus",
+    "updated": "Päivitetty"
+  },
+  "footer": {
+    "company": "Yritys",
+    "businessId": "Y-tunnus",
+    "email": "Sähköposti",
+    "phone": "Puhelin",
+    "privacy": "Tietosuojaseloste",
+    "languages": "Kielet",
+    "tagline": "Pienet askeleet. Suurempi huominen.",
+    "projects": "Projektit"
+  },
+  "form": {
+    "name": "Nimi",
+    "email": "Sähköposti",
+    "phone": "Puhelin",
+    "optional": "valinnainen",
+    "topic": "Aihe",
+    "topicPlaceholder": "Valitse aihe",
+    "topicOther": "Muu",
+    "message": "Viesti",
+    "consent": "Tietojani saa käyttää tähän yhteydenottoon vastaamiseen.",
+    "consentLink": "Lue tietosuojaseloste",
+    "submit": "Lähetä viesti",
+    "sending": "Lähetetään…",
+    "errorSummary": "Viestiä ei lähetetty. Korjaa nämä kohdat:",
+    "success": "Kiitos, viestisi on lähetetty. Vastaamme yleensä muutaman arkipäivän kuluessa.",
+    "errorSend": "Viestin lähetys epäonnistui. Yritä hetken kuluttua uudelleen tai lähetä sähköpostia osoitteeseen {email}.",
+    "notConfigured": "Lomake ei ole vielä käytössä. Lähetä viestisi sähköpostilla osoitteeseen {email}.",
+    "orEmail": "Voit myös lähettää sähköpostia osoitteeseen",
+    "errors": {
+      "nameRequired": "Kirjoita nimesi.",
+      "emailRequired": "Kirjoita sähköpostiosoitteesi, jotta voimme vastata.",
+      "emailInvalid": "Tarkista sähköpostiosoite. Sen pitää olla muotoa nimi@esimerkki.fi.",
+      "topicRequired": "Valitse, mitä asiasi koskee.",
+      "messageRequired": "Kirjoita viesti.",
+      "messageShort": "Kirjoita viestiin vähintään 10 merkkiä.",
+      "consentRequired": "Rastita ruutu, jotta voimme käsitellä yhteydenottosi."
+    }
+  },
+  "notFound": {
+    "title": "Sivua ei löytynyt",
+    "text": "Hakemaasi sivua ei ole olemassa tai se on siirretty.",
+    "home": "Etusivulle"
+  },
+  "mockup": {
+    "label": "Esimerkkinäkymä projektinhallintasovelluksesta",
+    "title": "Tehtävät",
+    "tasks": "Suunnittelu|Kehitys|Testaus|Julkaisu",
+    "progress": "Valmis",
+    "states": "Suunniteltu|Kehityksessä|Valmis käyttöön"
+  }
+}

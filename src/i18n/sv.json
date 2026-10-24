@@ -1,0 +1,81 @@
+{
+  "site": {
+    "description": "Lujamo är ett litet finländskt familjeföretag. Vi utvecklar människocentrerade appar och hjälper till från idé till lansering och vidareutveckling."
+  },
+  "a11y": {
+    "skip": "Hoppa till innehållet",
+    "mainNav": "Huvudmeny",
+    "languages": "Språk",
+    "currentLanguage": "valt språk",
+    "breadcrumb": "Du är här"
+  },
+  "nav": {
+    "home": "Lujamo, startsida",
+    "menu": "Meny",
+    "about": "Lujamos historia",
+    "contact": "Kontakt",
+    "projects": "Projekt"
+  },
+  "lang": {
+    "hint": "Den här sidan finns också på svenska.",
+    "hintLink": "Gå till den svenska sidan",
+    "dismiss": "Stäng",
+    "fallback": "Den här sidan har ännu inte översatts till svenska. Nedan visas den finska versionen."
+  },
+  "common": {
+    "contact": "Kontakta oss",
+    "readMore": "Läs mer",
+    "illustration": "Illustration, inte en skärmbild",
+    "updated": "Uppdaterad"
+  },
+  "footer": {
+    "company": "Företaget",
+    "businessId": "FO-nummer",
+    "email": "E-post",
+    "phone": "Telefon",
+    "privacy": "Dataskyddsbeskrivning",
+    "languages": "Språk",
+    "tagline": "Små steg. En större morgondag.",
+    "projects": "Projekt"
+  },
+  "form": {
+    "name": "Namn",
+    "email": "E-post",
+    "phone": "Telefon",
+    "optional": "frivilligt",
+    "topic": "Ämne",
+    "topicPlaceholder": "Välj ämne",
+    "topicOther": "Annat",
+    "message": "Meddelande",
+    "consent": "Mina uppgifter får användas för att svara på det här meddelandet.",
+    "consentLink": "Läs dataskyddsbeskrivningen",
+    "submit": "Skicka meddelandet",
+    "sending": "Skickar…",
+    "errorSummary": "Meddelandet skickades inte. Rätta följande:",
+    "success": "Tack, ditt meddelande har skickats. Vi svarar vanligtvis inom några vardagar.",
+    "errorSend": "Meddelandet kunde inte skickas. Försök igen om en stund eller skicka e-post till {email}.",
+    "notConfigured": "Formuläret är inte i bruk ännu. Skicka e-post till {email}.",
+    "orEmail": "Du kan också skicka e-post till",
+    "errors": {
+      "nameRequired": "Skriv ditt namn.",
+      "emailRequired": "Skriv din e-postadress så att vi kan svara.",
+      "emailInvalid": "Kontrollera e-postadressen. Den ska se ut som namn@exempel.fi.",
+      "topicRequired": "Välj vad ditt ärende gäller.",
+      "messageRequired": "Skriv ett meddelande.",
+      "messageShort": "Skriv minst 10 tecken.",
+      "consentRequired": "Kryssa i rutan så att vi kan behandla ditt meddelande."
+    }
+  },
+  "notFound": {
+    "title": "Sidan hittades inte",
+    "text": "Sidan du letade efter finns inte eller har flyttats.",
+    "home": "Till startsidan"
+  },
+  "mockup": {
+    "label": "Exempelvy från en app för projekthantering",
+    "title": "Uppgifter",
+    "tasks": "Planering|Utveckling|Testning|Lansering",
+    "progress": "Klart",
+    "states": "Planerat|Under utveckling|Klart att använda"
+  }
+}

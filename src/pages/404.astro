@@ -1,0 +1,58 @@
+---
+/* One 404 for all languages: the host cannot tell which language was wanted. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { languages, langs } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { pageAlternates, pagePath } from '../lib/content';
+
+const fi = useTranslations('fi');
+---
+
+<BaseLayout lang="fi" title={`${fi('notFound.title')} – Lujamo`} description={fi('notFound.text')} alternates={pageAlternates('home')} noindex>
+  <div class="container">
+    <div class="not-found">
+      <p class="not-found__code" aria-hidden="true">404</p>
+      {
+        langs.map((code) => {
+          const t = useTranslations(code);
+          return (
+            <section lang={languages[code].htmlLang} class="not-found__lang">
+              {code === 'fi' ? <h1>{t('notFound.title')}</h1> : <h2>{t('notFound.title')}</h2>}
+              <p>{t('notFound.text')}</p>
+              <p>
+                <a href={pagePath('home', code)}>{t('notFound.home')}</a>
+              </p>
+            </section>
+          );
+        })
+      }
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding-block: var(--space-2xl);
+  }
+
+  .not-found__code {
+    font-size: clamp(4rem, 2rem + 10vw, 8rem);
+    font-weight: 820;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: var(--sammal);
+  }
+
+  .not-found__lang {
+    margin-top: var(--space-l);
+  }
+
+  .not-found__lang h1,
+  .not-found__lang h2 {
+    font-size: var(--step-2);
+  }
+
+  .not-found__lang p {
+    margin-top: var(--space-2xs);
+  }
+</style>

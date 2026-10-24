@@ -1,0 +1,74 @@
+---
+/** Text pages: privacy policy (Markdown) and the form thank-you page. */
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { Lang, PageKey } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { getPage, pageAlternates, pagePath } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  pageKey: Extract<PageKey, 'privacy' | 'thanks'>;
+}
+const { lang, pageKey } = Astro.props;
+const { entry, fallback } = await getPage(lang, pageKey);
+const page = entry.data;
+const Content = entry.body ? (await render(entry)).Content : null;
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  lang={lang}
+  title={page.title}
+  description={page.description}
+  alternates={pageAlternates(pageKey)}
+  fallback={fallback}
+  noindex={pageKey === 'thanks'}
+>
+  <div class="container" lang={fallback ? 'fi' : undefined}>
+    <article class="simple">
+      <h1>{page.heading}</h1>
+      {page.review && <p class="simple__review">{page.review}</p>}
+      {page.text && <p class="lead simple__text">{page.text}</p>}
+      {Content && <div class="prose"><Content /></div>}
+      {page.updated && <p class="muted simple__updated">{t('common.updated')} <time datetime={page.updated}>{page.updated}</time></p>}
+      {page.back && <p class="simple__back"><a class="button" href={pagePath('home', lang)}>{page.back}</a></p>}
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .simple {
+    padding-block: var(--space-2xl) var(--space-l);
+  }
+
+  .simple h1 {
+    font-size: var(--step-4);
+  }
+
+  .simple__review {
+    margin-top: var(--space-m);
+    padding: var(--space-xs) var(--space-s);
+    background: #f3e7c9;
+    font-size: var(--step--1);
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  .simple__text {
+    margin-top: var(--space-m);
+  }
+
+  .prose {
+    margin-top: var(--space-l);
+  }
+
+  .simple__updated {
+    margin-top: var(--space-xl);
+    font-size: var(--step--1);
+  }
+
+  .simple__back {
+    margin-top: var(--space-xl);
+  }
+</style>

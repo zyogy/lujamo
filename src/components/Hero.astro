@@ -1,0 +1,101 @@
+---
+import { withBase } from '../i18n/utils';
+import { heroImage } from '../config/site';
+
+interface Props {
+  heading: string;
+  text: string;
+  primary: { label: string; href: string };
+  secondary: { label: string; href: string };
+  note?: string;
+  imageAlt: string;
+}
+const { heading, text, primary, secondary, note, imageAlt } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <h1 id="hero-title">{heading}</h1>
+      <p class="lead">{text}</p>
+      <div class="hero__actions">
+        <a class="button" href={primary.href}>{primary.label}</a>
+        <a class="link-arrow" href={secondary.href}>{secondary.label}</a>
+      </div>
+    </div>
+    <figure class="hero__media">
+      <img
+        src={withBase(heroImage.src)}
+        alt={imageAlt}
+        width={heroImage.width}
+        height={heroImage.height}
+        fetchpriority="high"
+        decoding="async"
+      />
+    </figure>
+  </div>
+  {
+    note && (
+      <div class="container">
+        <p class="eyebrow hero__note">{note}</p>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-xl) var(--space-l);
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 1.4rem + 3vw, 3.6rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    color: var(--graniitti);
+  }
+
+  .hero__text .lead {
+    margin-top: var(--space-m);
+    max-width: 44ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s) var(--space-l);
+    margin-top: var(--space-l);
+  }
+
+  .hero__media img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow);
+    background: #d9c7ae;
+  }
+
+  .hero__note {
+    margin-top: var(--space-xl);
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 56em) {
+    .hero {
+      padding-top: var(--space-2xl);
+    }
+    .hero__grid {
+      grid-template-columns: 6fr 5fr;
+      gap: var(--space-2xl);
+    }
+  }
+</style>

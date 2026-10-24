@@ -1,0 +1,207 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Monogram from './Monogram.astro';
+import { type Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { getServices, pagePath, unitPath } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+  /** Path of the current page, used to mark the active nav item */
+  current: string;
+}
+const { lang, alternates, current } = Astro.props;
+const t = useTranslations(lang);
+
+// Order follows the owner's reference: Ajatus · Sovelluskehitys · (Projektit) · Yhteys
+const services = await getServices(lang);
+const items = [
+  { href: pagePath('about', lang), label: t('nav.about') },
+  ...services.map((s) => ({ href: unitPath(s, lang), label: s.navLabel ?? s.name })),
+  { href: pagePath('projects', lang), label: t('nav.projects') },
+  { href: pagePath('contact', lang), label: t('nav.contact') },
+];
+const state = (href: string) => (current === href ? 'page' : current.startsWith(href) ? 'true' : undefined);
+---
+
+<header class="site-header" data-header>
+  <div class="container site-header__inner">
+    <a class="brand" href={pagePath('home', lang)} aria-label={t('nav.home')}>
+      <Monogram size={30} />
+      <span class="brand__name" aria-hidden="true">Lujamo</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label={t('a11y.mainNav')} data-nav>
+      <ul role="list">
+        {
+          items.map((item) => (
+            <li>
+              <a class="link-slide" href={item.href} aria-current={state(item.href)}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-header__tools">
+      <LanguageSwitcher lang={lang} alternates={alternates} />
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
+        <span class="visually-hidden">{t('nav.menu')}</span>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path class="menu-button__top" d="M4 8h16"></path>
+          <path class="menu-button__bottom" d="M4 16h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--kallio) 92%, transparent);
+    backdrop-filter: blur(8px);
+    transition: box-shadow 200ms;
+  }
+
+  /* a soft shadow instead of a rule once the page scrolls */
+  .site-header.is-scrolled {
+    box-shadow: 0 6px 20px -14px rgb(20 40 30 / 0.35);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: var(--space-l);
+    min-height: var(--header-h);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.75rem;
+    margin-right: auto;
+    color: var(--metsa);
+    text-decoration: none;
+  }
+
+  .brand__name {
+    color: var(--graniitti);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .site-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem var(--space-m);
+    list-style: none;
+    padding: 0;
+  }
+
+  .site-nav a {
+    display: inline-block;
+    padding-block: 0.6rem;
+    font-weight: 550;
+  }
+
+  .site-nav a[aria-current] {
+    color: var(--metsa);
+    font-weight: 700;
+  }
+
+  .site-header__tools {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .menu-button {
+    display: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .menu-button path {
+    stroke: currentColor;
+    stroke-width: 2;
+    transition: transform 200ms var(--ease-out);
+    transform-origin: 12px 12px;
+  }
+
+  .menu-button[aria-expanded='true'] .menu-button__top {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .menu-button[aria-expanded='true'] .menu-button__bottom {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  /* Small screens. Without JS the nav simply wraps onto its own row. */
+  @media (max-width: 52em) {
+    .site-header__inner {
+      column-gap: var(--space-s);
+    }
+
+    .site-nav {
+      order: 3;
+      flex-basis: 100%;
+      padding-bottom: var(--space-2xs);
+    }
+
+    :global(.js) .menu-button {
+      display: grid;
+    }
+
+    :global(.js) .site-nav:not(.is-open) {
+      display: none;
+    }
+
+    .site-nav.is-open {
+      padding-block: var(--space-xs) var(--space-m);
+    }
+
+    :global(.js) .site-nav ul {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    :global(.js) .site-nav a {
+      font-size: var(--step-1);
+      font-weight: 650;
+    }
+  }
+
+  @media (max-width: 30em) {
+    .site-header__inner {
+      column-gap: 0.5rem;
+    }
+    .brand {
+      gap: 0.45rem;
+    }
+    .brand__name {
+      font-size: 0.92rem;
+      letter-spacing: 0.14em;
+    }
+  }
+
+  @media (max-width: 21em) {
+    .brand__name {
+      display: none;
+    }
+  }
+</style>

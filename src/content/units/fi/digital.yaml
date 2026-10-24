@@ -1,0 +1,50 @@
+kind: service
+order: 1
+accent: digital
+slug: digital
+visual: app
+name: Luja Digital
+navLabel: Sovelluskehitys
+label: Sovelluskehitys
+title: Luja Digital – sovellukset ja ohjelmistot
+description: Sovelluskehitystä, ideointia, sparrausta ja konsultointia sekä projektien suunnittelua, vetämistä ja toteutusta todellisiin tarpeisiin.
+summary: Sovelluskehitystä, ideointia, sparrausta ja konsultointia sekä projektien suunnittelua, vetämistä ja toteutusta todellisiin tarpeisiin.
+highlights:
+  - Sovelluskehitys
+  - Ideointi, sparraus ja konsultointi
+  - Projektien suunnittelu ja vetäminen
+  - Julkaisu ja jatkokehitys
+intro:
+  heading: Ideasta julkaisuun ja jatkokehitykseen.
+  lead: Sovelluskehityksen lisäksi tarjoamme ideointia, sparrausta ja konsultointia sekä projektien suunnittelua, vetämistä ja toteutusta. Voimme auttaa kehitystyön eri vaiheissa aina ensimmäisen idean kirkastamisesta toimivan sovelluksen julkaisuun ja jatkokehitykseen asti.
+blocks:
+  - type: list
+    heading: Mitä teemme
+    items:
+      - title: Sovelluskehitys
+        text: Suunnittelemme ja toteutamme ihmislähtöisiä sovelluksia ja digitaalisia ratkaisuja, joista on käytännön hyötyä käyttäjilleen.
+      - title: Ideointi, sparraus ja konsultointi
+        text: Autamme kirkastamaan idean, jäsentämään tarpeet ja löytämään sopivan suunnan kehitystyölle.
+      - title: Projektien suunnittelu ja vetäminen
+        text: Autamme projektin suunnittelussa, vetämisessä ja toteutuksessa yhdessä sovittujen tavoitteiden mukaan.
+      - title: Julkaisu ja jatkokehitys
+        text: Voimme olla mukana toimivan sovelluksen julkaisuun ja käyttäjien kokemuksiin perustuvaan jatkokehitykseen asti.
+  - type: steps
+    heading: Näin työskentelemme
+    intro: Yhteistyö voi alkaa yhdestä keskustelusta, idean kirkastamisesta tai kokonaisen sovellusprojektin suunnittelusta. Etenemme tarpeen ja yhdessä sovittujen tavoitteiden mukaan.
+    items:
+      - title: Kartoitus
+        text: Selvitämme, mitä ongelmaa ratkaistaan, kuka sovellusta käyttää ja mitä rajoitteita on. Tuloksena on kirjallinen kuvaus ja arvio työn laajuudesta.
+      - title: Prototyyppi
+        text: Teemme klikattavan prototyypin, jota voi kokeilla ennen kuin varsinainen rakentaminen alkaa. Muutokset ovat tässä vaiheessa halvimpia.
+      - title: Toteutus
+        text: Rakennamme sovelluksen lyhyissä jaksoissa ja näytämme keskeneräistä versiota säännöllisesti.
+      - title: Luovutus ja ylläpito
+        text: Julkaisemme sovelluksen, luovutamme dokumentaation ja sovimme ylläpidosta.
+  - type: projects
+    heading: Omia projektejamme
+    intro: Rakennamme myös omia tuotteita. Ne näyttävät käytännössä, miten työskentelemme.
+  - type: cta
+    heading: Onko sinulla sovellustarve?
+    text: Kerro lyhyesti, mitä tarvitset. Vastaamme ja ehdotamme seuraavaa askelta.
+    topic: digital

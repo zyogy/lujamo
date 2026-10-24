@@ -1,0 +1,236 @@
+---
+/**
+ * Contact form. Phase A posts to Web3Forms (see src/config/site.ts).
+ * Without JS: native validation and Web3Forms redirects to our thank-you page.
+ * With JS: localised inline errors, an error summary and an in-page result.
+ */
+import type { Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { company, form, formConfigured } from '../config/site';
+import { getUnits, pagePath } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const units = await getUnits(lang);
+const redirect = new URL(pagePath('thanks', lang), Astro.site).href;
+
+const messages = {
+  nameRequired: t('form.errors.nameRequired'),
+  emailRequired: t('form.errors.emailRequired'),
+  emailInvalid: t('form.errors.emailInvalid'),
+  topicRequired: t('form.errors.topicRequired'),
+  messageRequired: t('form.errors.messageRequired'),
+  messageShort: t('form.errors.messageShort'),
+  consentRequired: t('form.errors.consentRequired'),
+  summary: t('form.errorSummary'),
+  success: t('form.success'),
+  errorSend: t('form.errorSend', { email: company.email }),
+  notConfigured: t('form.notConfigured', { email: company.email }),
+  sending: t('form.sending'),
+};
+---
+
+<form
+  class="contact-form"
+  action={form.endpoint}
+  method="post"
+  data-contact-form
+  data-configured={formConfigured ? 'true' : 'false'}
+  data-messages={JSON.stringify(messages)}
+>
+  <input type="hidden" name="access_key" value={form.accessKey} />
+  <input type="hidden" name="subject" value="Lujamo: yhteydenotto verkkosivuilta" />
+  <input type="hidden" name="from_name" value="lujamo-sivusto" />
+  <input type="hidden" name="language" value={lang} />
+  <input type="hidden" name="redirect" value={redirect} />
+  <!-- Honeypot: real visitors never see or fill this -->
+  <div class="contact-form__trap" aria-hidden="true">
+    <label>Leave empty <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" /></label>
+  </div>
+
+  <div class="error-summary" data-error-summary tabindex="-1" hidden>
+    <p></p>
+    <ul role="list"></ul>
+  </div>
+
+  <div class="field">
+    <label for="cf-name">{t('form.name')}</label>
+    <input id="cf-name" name="name" type="text" autocomplete="name" required data-error="nameRequired" />
+  </div>
+
+  <div class="field">
+    <label for="cf-email">{t('form.email')}</label>
+    <input id="cf-email" name="email" type="email" autocomplete="email" required inputmode="email" />
+  </div>
+
+  <div class="field">
+    <label for="cf-phone">{t('form.phone')} <span class="field__opt">({t('form.optional')})</span></label>
+    <input id="cf-phone" name="phone" type="tel" autocomplete="tel" />
+  </div>
+
+  <div class="field">
+    <label for="cf-topic">{t('form.topic')}</label>
+    <select id="cf-topic" name="topic" required data-error="topicRequired">
+      <option value="">{t('form.topicPlaceholder')}</option>
+      {units.map((u) => <option value={u.id}>{u.name}</option>)}
+      <option value="other">{t('form.topicOther')}</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="cf-message">{t('form.message')}</label>
+    <textarea id="cf-message" name="message" rows="6" required minlength="10"></textarea>
+  </div>
+
+  <div class="field field--check">
+    <input id="cf-consent" name="consent" type="checkbox" value="yes" required data-error="consentRequired" />
+    <label for="cf-consent">
+      {t('form.consent')}
+      <a href={pagePath('privacy', lang)}>{t('form.consentLink')}</a>
+    </label>
+  </div>
+
+  <div class="contact-form__actions">
+    <button class="button" type="submit" data-submit>{t('form.submit')}</button>
+    <p class="form-status" role="status" data-form-status></p>
+  </div>
+</form>
+
+<script>
+  import { initContactForm } from '../scripts/contact-form.ts';
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach(initContactForm);
+</script>
+
+<style>
+  .contact-form {
+    display: grid;
+    gap: var(--space-m);
+    max-width: 36rem;
+  }
+
+  .contact-form__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  label {
+    font-weight: 600;
+  }
+
+  .field__opt {
+    color: var(--teras);
+    font-weight: 400;
+  }
+
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    width: 100%;
+    min-height: 2.9rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--teras);
+    border-radius: var(--radius);
+    background: var(--pinta);
+    line-height: 1.4;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+  }
+
+  [aria-invalid='true'] {
+    border-color: var(--fight) !important;
+    border-width: 2px !important;
+  }
+
+  .field--check {
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .field--check input {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-top: 0.15rem;
+    accent-color: var(--accent);
+  }
+
+  .field--check label {
+    font-weight: 400;
+  }
+
+  .field--check label a {
+    display: block;
+    width: fit-content;
+  }
+
+  .field--check :global(.field__error) {
+    grid-column: 2;
+  }
+
+  :global(.field__error) {
+    color: var(--fight);
+    font-weight: 600;
+    font-size: var(--step--1);
+  }
+
+  .error-summary {
+    padding: var(--space-s) var(--space-m);
+    border-left: 3px solid var(--fight);
+    background: var(--pinta);
+  }
+
+  .error-summary p {
+    font-weight: 700;
+  }
+
+  .error-summary ul {
+    margin-top: var(--space-2xs);
+    padding-left: 1.1rem;
+  }
+
+  .error-summary a {
+    color: var(--fight);
+  }
+
+  .contact-form__actions {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-s);
+  }
+
+  .form-status:empty {
+    display: none;
+  }
+
+  .form-status {
+    padding: var(--space-s) var(--space-m);
+    border-left: 3px solid var(--accent);
+    background: var(--pinta);
+    font-weight: 550;
+  }
+
+  .form-status.is-error {
+    border-color: var(--fight);
+  }
+</style>

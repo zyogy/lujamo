@@ -1,0 +1,22 @@
+title: Lujamo – Solid apps for real needs
+description: Lujamo is a small Finnish family business. We build people-centred apps and help from the first idea through launch and further development.
+hero:
+  heading: Solid apps for real needs.
+  text: Lujamo is a small Finnish family business specialising in app development. We design and build people-centred apps and digital solutions that address real needs and bring practical benefits to their users.
+  primary: Explore app development
+  secondary: The Lujamo story
+  note: About the company
+  imageAlt: A small tree growing on a granite rock by the sea at sunset.
+statement: A place where ideas become working apps.
+service:
+  heading: From idea to launch and beyond.
+  text: Alongside app development, we offer idea development, sparring and consulting, as well as project planning, management and delivery. We can help at different stages of development, from clarifying an initial idea to launching a working app and developing it further.
+  button: Explore app development
+projects:
+  eyebrow: Projects
+  heading: Our own projects
+  text: We also develop our own products, such as ValmiusTurva, an app focused on safety and preparedness.
+  all: All projects
+cta:
+  heading: Have an idea for an app? Let's talk.
+  button: Get in touch

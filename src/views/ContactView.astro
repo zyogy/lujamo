@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import type { Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { company } from '../config/site';
+import { getPage, pageAlternates } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const { entry, fallback } = await getPage(lang, 'contact');
+const page = entry.data;
+---
+
+<BaseLayout lang={lang} title={page.title} description={page.description} alternates={pageAlternates('contact')} fallback={fallback}>
+  <div lang={fallback ? 'fi' : undefined}>
+    <header class="container page-intro">
+      <p class="eyebrow">{t('nav.contact')}</p>
+      <h1>{page.heading}</h1>
+      <p class="lead">{page.lead}</p>
+    </header>
+
+    <div class="container">
+      <div class="contact-grid">
+        <section class="contact-form-panel" aria-labelledby="form-title">
+          <h2 id="form-title">{page.formHeading}</h2>
+          <ContactForm lang={lang} />
+        </section>
+        <section aria-labelledby="details-title" class="details">
+          <h2 id="details-title">{page.detailsHeading}</h2>
+          <dl>
+            <div><dt>{t('footer.email')}</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+            {company.phone && <div><dt>{t('footer.phone')}</dt><dd><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></dd></div>}
+            <div><dt>{t('footer.company')}</dt><dd>{company.legalName}, {company.city}</dd></div>
+            <div><dt>{t('footer.businessId')}</dt><dd>{company.businessId}</dd></div>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-intro {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-intro .lead {
+    margin-top: var(--space-m);
+    max-width: 50ch;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  h2 {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-l);
+  }
+
+  .contact-form-panel {
+    padding: var(--space-l) var(--space-m);
+    border-radius: var(--radius-l);
+    background: var(--pinta);
+  }
+
+  @media (min-width: 40em) {
+    .contact-form-panel {
+      padding: var(--space-xl);
+    }
+  }
+
+  .details dl {
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  .details dt {
+    color: var(--teras);
+    font-size: var(--step--1);
+  }
+
+  .details dd {
+    margin: 0;
+    font-weight: 550;
+  }
+
+  @media (min-width: 60em) {
+    .contact-grid {
+      grid-template-columns: 7fr 4fr;
+    }
+  }
+</style>

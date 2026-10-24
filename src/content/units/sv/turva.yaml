@@ -1,0 +1,40 @@
+kind: project
+order: 1
+accent: turva
+slug: projects/turva
+visual: turva-map
+name: ValmiusTurva
+label: Beredskapsapp
+title: ValmiusTurva – beredskapsapp
+description: ValmiusTurva samlar beredskapsanvisningar, lokal information, kartor och praktiska verktyg. Offlineanvändning är en central funktion.
+summary: ValmiusTurva är en app utvecklad av Lujamo som hjälper människor att förbereda sig för olika störningssituationer och hitta den information de behöver när den behövs.
+intro:
+  heading: Säkerhet och beredskap för vardagens behov – även utan nätverksanslutning.
+  lead: ValmiusTurva är en app utvecklad av Lujamo som hjälper människor att förbereda sig för olika störningssituationer och hitta den information de behöver när den behövs.
+  body: 'Målet med appen är att samla beredskapsanvisningar, lokal information, kartor och praktiska verktyg till en tydlig helhet. Informationen ska vara lätt att hitta och använda även när nätverksanslutningen inte fungerar. En central funktion i ValmiusTurva är offlineanvändning: viktig information kan sparas på enheten i förväg och användas också utan internetanslutning.'
+blocks:
+  - type: text
+    heading: Varför ValmiusTurva?
+    body: |-
+      Information om beredskap finns på många olika ställen. Ur användarens perspektiv kan informationen ändå vara utspridd, svår att hitta eller alltför allmän. Vid en störning fungerar nätverksanslutningen inte nödvändigtvis, så viktig information bör också vara tillgänglig offline.
+
+      Målet med ValmiusTurva är att samla viktig information på ett ställe och göra den praktiskt användbar. I appen kan allmänna beredskapsanvisningar kombineras med lokal information, till exempel tjänster, samlingsplatser, skyddsplatser och andra platser som är viktiga för användaren.
+
+      Målet är inte att öka mängden information, utan att göra det lättare att hitta och använda rätt information — även när internet inte är tillgängligt.
+  - type: text
+    heading: Utvecklingen av ValmiusTurva
+    body: |-
+      ValmiusTurva utvecklas stegvis tillsammans med användare och samarbetspartner. Genom testning, respons och praktiska erfarenheter bedömer vi vilka funktioner som är nyttiga för användarna och hur appen kan förbättras.
+
+      Offlinefunktionerna är en viktig del av utvecklingen. Vi vill säkerställa att anvisningar, kartor och annan central information som sparats i appen kan användas även utan nätverksanslutning. Samtidigt utvecklar vi sätt att uppdatera innehållet och hålla det aktuellt när en anslutning finns tillgänglig.
+
+      Tillsammans med kommuner och städer kan ValmiusTurva utvecklas för lokal användning. Lokala anvisningar, kontaktuppgifter och kartobjekt kan samlas till en överenskommen helhet vars innehåll underhålls enligt gemensamt överenskomna ansvar.
+  - type: cta
+    heading: Samarbete
+    text: |-
+      Vi söker samarbetspartner som vill utveckla beredskap, säkerhet och tillgången till information.
+
+      Samarbetet kan till exempel handla om att testa appen, utveckla offlineanvändningen, samla lokalt innehåll, genomföra en pilot eller ta fram nya funktioner.
+
+      Vill du höra mer om ValmiusTurva eller diskutera ett möjligt samarbete?
+    topic: turva

@@ -1,0 +1,60 @@
+---
+/**
+ * Round flag drawn as inline SVG (emoji flags do not render on Windows).
+ * A soft highlight and an inner edge shade make it read as a small glass bead.
+ */
+interface Props {
+  code: 'fi' | 'gb' | 'se';
+}
+const { code } = Astro.props;
+const id = `flag-${code}`;
+---
+
+<svg class="flag" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id={`${id}-clip`}><circle cx="16" cy="16" r="16"></circle></clipPath>
+    <radialGradient id={`${id}-hl`} cx="0.34" cy="0.28" r="0.72">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.55"></stop>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.08"></stop>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+    </radialGradient>
+    <radialGradient id={`${id}-sh`} cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0.68" stop-color="#000" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#000" stop-opacity="0.3"></stop>
+    </radialGradient>
+  </defs>
+  <g clip-path={`url(#${id}-clip)`}>
+    {
+      code === 'fi' && (
+        <>
+          <rect width="32" height="32" fill="#fff" />
+          <rect x="8.5" width="6.5" height="32" fill="#002f6c" />
+          <rect y="12.75" width="32" height="6.5" fill="#002f6c" />
+        </>
+      )
+    }
+    {
+      code === 'se' && (
+        <>
+          <rect width="32" height="32" fill="#006aa7" />
+          <rect x="9" width="5.5" height="32" fill="#fecc02" />
+          <rect y="13.25" width="32" height="5.5" fill="#fecc02" />
+        </>
+      )
+    }
+    {
+      code === 'gb' && (
+        <>
+          <rect width="32" height="32" fill="#012169" />
+          <path d="M0 0 32 32M32 0 0 32" stroke="#fff" stroke-width="6.5" />
+          <path d="M0 0 32 32M32 0 0 32" stroke="#c8102e" stroke-width="2.2" />
+          <path d="M16 0v32M0 16h32" stroke="#fff" stroke-width="9" />
+          <path d="M16 0v32M0 16h32" stroke="#c8102e" stroke-width="5" />
+        </>
+      )
+    }
+    <circle cx="16" cy="16" r="16" fill={`url(#${id}-sh)`}></circle>
+    <circle cx="16" cy="16" r="16" fill={`url(#${id}-hl)`}></circle>
+  </g>
+  <circle cx="16" cy="16" r="15.5" fill="none" stroke="#000" stroke-opacity="0.18"></circle>
+</svg>

@@ -1,0 +1,20 @@
+# TODO (owner): replace the placeholder description with 3–5 sentences on what
+# Luja Fight does and for whom (plan §11, question 3). Nothing here should be
+# expanded with invented services until confirmed.
+kind: project
+order: 2
+accent: fight
+slug: projects/fight
+name: Luja Fight
+label: Kamppailulajit
+title: Luja Fight – kamppailulajit
+description: Luja Fight on Lujamon kamppailulajeihin keskittyvä yksikkö.
+summary: Luja Fight on Lujamon kamppailulajeihin keskittyvä yksikkö, joka palvelee seuroja ja urheilijoita. Tarkempi kuvaus toiminnasta julkaistaan pian.
+intro:
+  heading: Kamppailulajit, samalla lujalla otteella.
+  lead: Luja Fight on Lujamon kamppailulajeihin keskittyvä yksikkö. Toiminnan tarkempi kuvaus on vielä työn alla ja julkaistaan tällä sivulla pian.
+blocks:
+  - type: cta
+    heading: Edustatko seuraa tai oletko urheilija?
+    text: Jos haluat kuulla Luja Fightista jo nyt, lähetä viesti. Vastaamme suoraan.
+    topic: fight

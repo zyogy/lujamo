@@ -1,0 +1,74 @@
+---
+/** Three values side by side, divided by short moss rules (owner's reference). */
+interface Props {
+  heading: string;
+  items: { title: string; text: string }[];
+  /** show the heading visually (about page) or only to screen readers (front page) */
+  showHeading?: boolean;
+}
+const { heading, items, showHeading = false } = Astro.props;
+---
+
+<section class="values" aria-labelledby="values-title">
+  <div class="container">
+    <h2 id="values-title" class:list={['values__heading', { 'visually-hidden': !showHeading }]}>{heading}</h2>
+    <ul role="list">
+      {
+        items.map((item) => (
+          <li>
+            <h3>{item.title}.</h3>
+            <p>{item.text}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .values {
+    padding-block: var(--space-2xl);
+  }
+
+  .values__heading {
+    margin-bottom: var(--space-xl);
+    font-size: var(--step-3);
+    text-align: center;
+  }
+
+  ul {
+    display: grid;
+    gap: var(--space-l);
+    max-width: none;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+
+  li {
+    padding-inline: var(--space-m);
+  }
+
+  h3 {
+    font-size: var(--step-3);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    margin: var(--space-xs) auto 0;
+    max-width: 28ch;
+    color: var(--teras);
+  }
+
+  @media (min-width: 48em) {
+    ul {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    li + li {
+      border-left: 2px solid var(--sammal);
+    }
+  }
+</style>

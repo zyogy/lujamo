@@ -1,0 +1,32 @@
+name: Deploy to Neocities
+
+# Optional manual deployment from the Actions tab.
+# Requires the repository secret NEOCITIES_API_TOKEN
+# (Neocities → Settings → Manage site settings → API key). Never commit the key.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-neocities
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://lujamo.neocities.org' }}
+          BASE_PATH: ${{ vars.BASE_PATH || '/' }}
+      - run: npm run check:neocities
+      - uses: bcomnes/deploy-to-neocities@v3
+        with:
+          api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+          dist_dir: dist
+          cleanup: true

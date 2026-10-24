@@ -1,0 +1,50 @@
+kind: service
+order: 1
+accent: digital
+slug: digital
+visual: app
+name: Luja Digital
+navLabel: App development
+label: App development
+title: Luja Digital – apps and software
+description: App development, idea development, sparring and consulting, as well as project planning, management and delivery to meet real needs.
+summary: App development, idea development, sparring and consulting, as well as project planning, management and delivery to meet real needs.
+highlights:
+  - App development
+  - Ideas, sparring and consulting
+  - Project planning and management
+  - Launch and further development
+intro:
+  heading: From idea to launch and beyond.
+  lead: Alongside app development, we offer idea development, sparring and consulting, as well as project planning, management and delivery. We can help at different stages of development, from clarifying an initial idea to launching a working app and developing it further.
+blocks:
+  - type: list
+    heading: What we do
+    items:
+      - title: App development
+        text: We design and build people-centred apps and digital solutions that bring practical benefits to their users.
+      - title: Ideas, sparring and consulting
+        text: We help clarify your idea, understand the needs and find a suitable direction for development.
+      - title: Project planning and management
+        text: We help plan, manage and deliver projects according to the goals we agree on together.
+      - title: Launch and further development
+        text: We can support you through the launch of a working app and its further development based on users’ experiences.
+  - type: steps
+    heading: How we work
+    intro: Working together can start with a single conversation, clarifying an idea or planning an entire app project. We proceed according to your needs and the goals we agree on together.
+    items:
+      - title: Discovery
+        text: We find out which problem is being solved, who will use the app and what the constraints are. The result is a written description and an estimate of the scope.
+      - title: Prototype
+        text: We build a clickable prototype you can try before the actual build starts. Changes are cheapest at this stage.
+      - title: Build
+        text: We build the app in short cycles and show you the work in progress regularly.
+      - title: Handover and maintenance
+        text: We publish the app, hand over the documentation and agree on maintenance.
+  - type: projects
+    heading: Our own projects
+    intro: We also build products of our own. They show in practice how we work.
+  - type: cta
+    heading: Do you need an app?
+    text: Tell us briefly what you need. We will reply and suggest the next step.
+    topic: digital

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectList from '../components/ProjectList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import type { Lang } from '../i18n/config';
+import { getPage, getProjects, pageAlternates } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const { entry, fallback } = await getPage(lang, 'projects');
+const page = entry.data;
+const home = (await getPage(lang, 'home')).entry.data;
+const projects = await getProjects(lang);
+---
+
+<BaseLayout lang={lang} title={page.title} description={page.description} alternates={pageAlternates('projects')} fallback={fallback}>
+  <div lang={fallback ? 'fi' : undefined}>
+    <header class="container page-intro">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.heading}</h1>
+      <p class="lead">{page.lead}</p>
+    </header>
+    <div class="container projects-page">
+      <ProjectList lang={lang} projects={projects} headingLevel={2} />
+    </div>
+    <CtaBand lang={lang} heading={home.cta.heading} button={home.cta.button} />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-intro {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-intro .lead {
+    margin-top: var(--space-m);
+    max-width: 52ch;
+  }
+
+  .projects-page {
+    padding-bottom: var(--space-2xl);
+  }
+</style>

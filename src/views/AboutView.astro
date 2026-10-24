@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ValuesRow from '../components/ValuesRow.astro';
+import CtaBand from '../components/CtaBand.astro';
+import type { Lang } from '../i18n/config';
+import { useTranslations, withBase } from '../i18n/utils';
+import { company, heroImage } from '../config/site';
+import { getPage, pageAlternates, paragraphs } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const { entry, fallback } = await getPage(lang, 'about');
+const page = entry.data;
+const home = (await getPage(lang, 'home')).entry.data;
+---
+
+<BaseLayout lang={lang} title={page.title} description={page.description} alternates={pageAlternates('about')} fallback={fallback}>
+  <div lang={fallback ? 'fi' : undefined}>
+    <header class="container page-intro">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.heading}</h1>
+      <p class="lead">{page.lead}</p>
+      {page.body && <div class="introduction">{paragraphs(page.body).map((p: string) => <p>{p}</p>)}</div>}
+    </header>
+
+    <section class="container story" aria-labelledby="about-story">
+      <img class="story__image" src={withBase(heroImage.src)} alt="" width={heroImage.width} height={heroImage.height} loading="lazy" decoding="async" />
+      <div class="story__text">
+        {page.story.eyebrow && <p class="eyebrow">{page.story.eyebrow}</p>}
+        <h2 id="about-story">{page.story.heading}</h2>
+        {paragraphs(page.story.body).map((p: string) => <p>{p}</p>)}
+      </div>
+    </section>
+
+    <div class="band-white">
+      <ValuesRow heading={page.values.heading} items={page.values.items} showHeading />
+    </div>
+
+    <section class="container section details" aria-labelledby="about-details">
+      <h2 id="about-details">{page.detailsHeading}</h2>
+      <dl>
+        <div><dt>{t('footer.company')}</dt><dd>{company.legalName}</dd></div>
+        <div><dt>{t('footer.businessId')}</dt><dd>{company.businessId}</dd></div>
+        <div><dt>{t('footer.email')}</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+      </dl>
+    </section>
+
+    <CtaBand lang={lang} heading={home.cta.heading} button={home.cta.button} />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-intro {
+    padding-block: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-intro h1 {
+    max-width: 16ch;
+  }
+
+  .page-intro .lead {
+    margin-top: var(--space-m);
+    max-width: 52ch;
+  }
+
+  .story {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: start;
+    padding-bottom: var(--space-2xl);
+  }
+
+  .story__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 35% 60%;
+    border-radius: var(--radius-l);
+  }
+
+  .story h2 {
+    font-size: var(--step-4);
+    margin-bottom: var(--space-m);
+  }
+
+  .introduction {
+    max-width: 66ch;
+    margin-top: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.6;
+  }
+
+  .introduction p + p {
+    margin-top: 1em;
+  }
+
+  .story .eyebrow {
+    font-size: var(--step--1);
+    margin-bottom: var(--space-s);
+  }
+
+  .story p {
+    font-size: var(--step-1);
+    line-height: 1.6;
+  }
+
+  .story p + p {
+    margin-top: 1em;
+  }
+
+  .details h2 {
+    font-size: var(--step-3);
+    margin-bottom: var(--space-m);
+  }
+
+  .details dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: var(--space-m);
+    max-width: none;
+  }
+
+  .details dl div {
+    padding: var(--space-m);
+    border-radius: var(--radius-l);
+    background: var(--pinta);
+  }
+
+  .details dt {
+    color: var(--teras);
+    font-size: var(--step--1);
+  }
+
+  .details dd {
+    margin: 0.2rem 0 0;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+  }
+
+  @media (min-width: 56em) {
+    .story {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+</style>

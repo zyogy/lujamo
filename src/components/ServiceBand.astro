@@ -1,0 +1,102 @@
+---
+/** Full-width deep-green band presenting a service (front page). */
+import AppMockup from './AppMockup.astro';
+import ContourLines from './ContourLines.astro';
+import type { Lang } from '../i18n/config';
+import { unitPath, type Unit } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  unit: Unit;
+  heading: string;
+  text: string;
+  button: string;
+}
+const { lang, unit, heading, text, button } = Astro.props;
+const headingId = `service-${unit.id}`;
+---
+
+<section class="band-dark service" aria-labelledby={headingId}>
+  <ContourLines />
+  <div class="container service__grid">
+    <div class="service__text">
+      <p class="eyebrow">{unit.name}</p>
+      <h2 id={headingId}>{heading}</h2>
+      <p class="service__lead">{text}</p>
+      {
+        unit.highlights && (
+          <ul class="service__list" role="list">
+            {unit.highlights.map((h) => (
+              <li>{h}</li>
+            ))}
+          </ul>
+        )
+      }
+      <a class="button" href={unitPath(unit, lang)}>{button}</a>
+    </div>
+    <div class="service__media">
+      <AppMockup lang={lang} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .service {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-2xl);
+  }
+
+  .service__grid {
+    position: relative;
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 1.3rem + 3.6vw, 3.6rem);
+    letter-spacing: -0.04em;
+    max-width: 14ch;
+  }
+
+  .service__lead {
+    margin-top: var(--space-m);
+    color: var(--on-dark-muted);
+    font-size: var(--step-1);
+    line-height: 1.55;
+    max-width: 38ch;
+  }
+
+  .service__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+    gap: 0.6rem var(--space-l);
+    margin-block: var(--space-l);
+    padding: 0;
+    list-style: none;
+    max-width: 30rem;
+  }
+
+  .service__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+  }
+
+  .service__list li::before {
+    content: '';
+    flex: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--sammal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M3 6.2l2 2 4-4.4' fill='none' stroke='%23173b2c' stroke-width='1.8'/%3E%3C/svg%3E") center / 75% no-repeat;
+  }
+
+  @media (min-width: 56em) {
+    .service__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+/**
+ * Every page in every language is generated here from two sources:
+ *  - fixed pages: pageSlugs in src/i18n/config.ts
+ *  - services/projects: src/content/units/<lang>/*.yaml (their `slug`)
+ * Finnish lives at the root, other languages under /en/ and /sv/.
+ */
+import type { GetStaticPaths } from 'astro';
+import { defaultLang, langs, pageSlugs, type Lang, type PageKey } from '../i18n/config';
+import { getUnits } from '../lib/content';
+import HomeView from '../views/HomeView.astro';
+import UnitView from '../views/UnitView.astro';
+import AboutView from '../views/AboutView.astro';
+import ProjectsView from '../views/ProjectsView.astro';
+import ContactView from '../views/ContactView.astro';
+import SimpleView from '../views/SimpleView.astro';
+
+type RouteProps = { lang: Lang } & ({ view: 'page'; key: PageKey } | { view: 'unit'; id: string });
+
+export const getStaticPaths = (async () => {
+  const paths: { params: { path: string | undefined }; props: RouteProps }[] = [];
+  const join = (lang: Lang, slug: string) => [lang === defaultLang ? '' : lang, slug].filter(Boolean).join('/') || undefined;
+
+  for (const lang of langs) {
+    for (const key of Object.keys(pageSlugs) as PageKey[]) {
+      paths.push({ params: { path: join(lang, pageSlugs[key][lang]) }, props: { lang, view: 'page', key } });
+    }
+    for (const unit of await getUnits(lang)) {
+      paths.push({ params: { path: join(lang, unit.slug) }, props: { lang, view: 'unit', id: unit.id } });
+    }
+  }
+  return paths;
+}) satisfies GetStaticPaths;
+
+const props = Astro.props as RouteProps;
+const { lang } = props;
+---
+
+{props.view === 'unit' && <UnitView lang={lang} id={props.id} />}
+{props.view === 'page' && props.key === 'home' && <HomeView lang={lang} />}
+{props.view === 'page' && props.key === 'about' && <AboutView lang={lang} />}
+{props.view === 'page' && props.key === 'projects' && <ProjectsView lang={lang} />}
+{props.view === 'page' && props.key === 'contact' && <ContactView lang={lang} />}
+{props.view === 'page' && (props.key === 'privacy' || props.key === 'thanks') && <SimpleView lang={lang} pageKey={props.key} />}

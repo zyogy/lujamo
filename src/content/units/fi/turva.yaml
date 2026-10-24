@@ -1,0 +1,40 @@
+kind: project
+order: 1
+accent: turva
+slug: projects/turva
+visual: turva-map
+name: ValmiusTurva
+label: Varautumissovellus
+title: ValmiusTurva – varautumissovellus
+description: ValmiusTurva kokoaa varautumisohjeet, paikalliset tiedot, kartat ja käytännön työkalut yhteen. Keskeinen ominaisuus on offline-käyttö.
+summary: ValmiusTurva on Lujamon kehittämä sovellus, joka auttaa ihmisiä varautumaan erilaisiin häiriötilanteisiin ja löytämään tarvitsemansa tiedon silloin, kun sitä tarvitaan.
+intro:
+  heading: Turvallisuutta ja varautumista arjen tarpeisiin – myös ilman verkkoyhteyttä.
+  lead: ValmiusTurva on Lujamon kehittämä sovellus, joka auttaa ihmisiä varautumaan erilaisiin häiriötilanteisiin ja löytämään tarvitsemansa tiedon silloin, kun sitä tarvitaan.
+  body: 'Sovelluksen tavoitteena on koota varautumisohjeet, paikalliset tiedot, kartat ja käytännön työkalut yhteen selkeään kokonaisuuteen. Tiedot on tarkoitus pitää helposti löydettävissä ja käytettävissä myös silloin, kun verkkoyhteys ei toimi. ValmiusTurvan keskeinen ominaisuus on offline-käyttö: tärkeät tiedot voidaan tallentaa laitteelle etukäteen, jolloin niitä voi käyttää myös ilman internet-yhteyttä.'
+blocks:
+  - type: text
+    heading: Miksi ValmiusTurva?
+    body: |-
+      Varautumiseen liittyvää tietoa on saatavilla monissa eri paikoissa. Käyttäjän näkökulmasta tieto voi kuitenkin olla hajallaan, vaikeasti löydettävissä tai liian yleisellä tasolla. Häiriötilanteessa verkkoyhteys ei välttämättä toimi, joten tärkeän tiedon pitäisi olla saatavilla myös offline-tilassa.
+
+      ValmiusTurvan tavoitteena on tuoda tärkeä tieto yhteen paikkaan ja tehdä siitä käytännöllistä. Sovelluksessa voidaan yhdistää yleiset varautumisohjeet paikallisiin tietoihin, kuten palveluihin, kokoontumispaikkoihin, suojapaikkoihin ja muihin käyttäjälle tärkeisiin kohteisiin.
+
+      Tavoitteena ei ole lisätä tiedon määrää, vaan helpottaa oikean tiedon löytämistä ja hyödyntämistä — myös silloin, kun internetiä ei ole käytettävissä.
+  - type: text
+    heading: ValmiusTurvan kehittäminen
+    body: |-
+      ValmiusTurvaa kehitetään vaiheittain yhdessä käyttäjien ja yhteistyökumppaneiden kanssa. Testauksen, palautteen ja käytännön kokemusten avulla arvioimme, mitkä ominaisuudet ovat käyttäjille hyödyllisiä ja miten sovellusta voidaan parantaa.
+
+      Offline-toiminnallisuus on tärkeä osa kehittämistä. Haluamme varmistaa, että sovellukseen tallennetut ohjeet, kartat ja muut keskeiset tiedot ovat käytettävissä myös ilman verkkoyhteyttä. Samalla kehitämme tapoja, joilla sisältöjä voidaan päivittää ja pitää ajan tasalla verkkoyhteyden ollessa käytettävissä.
+
+      Kuntien ja kaupunkien kanssa ValmiusTurvaa voidaan kehittää paikalliseen käyttöön. Paikalliset ohjeet, yhteystiedot ja karttakohteet voidaan koota sovittuun kokonaisuuteen, jonka sisältöjä ylläpidetään yhdessä sovittujen vastuiden mukaisesti.
+  - type: cta
+    heading: Yhteistyö
+    text: |-
+      Etsimme yhteistyökumppaneita, jotka haluavat kehittää varautumista, turvallisuutta ja tiedon saavutettavuutta.
+
+      Yhteistyö voi liittyä esimerkiksi sovelluksen testaamiseen, offline-käytön kehittämiseen, paikallisten sisältöjen kokoamiseen, pilottiin tai uusiin toiminnallisuuksiin.
+
+      Haluatko kuulla lisää ValmiusTurvasta tai keskustella mahdollisesta yhteistyöstä?
+    topic: turva

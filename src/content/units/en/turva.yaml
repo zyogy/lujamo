@@ -1,0 +1,40 @@
+kind: project
+order: 1
+accent: turva
+slug: projects/turva
+visual: turva-map
+name: ValmiusTurva
+label: Preparedness app
+title: ValmiusTurva – preparedness app
+description: ValmiusTurva brings preparedness guidance, local information, maps and practical tools together. Offline use is a key feature.
+summary: ValmiusTurva is an app developed by Lujamo that helps people prepare for different disruptions and find the information they need when they need it.
+intro:
+  heading: Safety and preparedness for everyday needs – even offline.
+  lead: ValmiusTurva is an app developed by Lujamo that helps people prepare for different disruptions and find the information they need when they need it.
+  body: 'The app aims to bring preparedness guidance, local information, maps and practical tools together in one clear whole. The information is intended to stay easy to find and use even when a network connection is unavailable. A key feature of ValmiusTurva is offline use: important information can be saved to the device in advance and used without an internet connection.'
+blocks:
+  - type: text
+    heading: Why ValmiusTurva?
+    body: |-
+      Preparedness information is available in many places. From the user’s perspective, however, it can be scattered, difficult to find or too general. During a disruption, the network may be unavailable, so important information should also be accessible offline.
+
+      ValmiusTurva aims to bring important information into one place and make it practical. The app can combine general preparedness guidance with local information, such as services, assembly points, shelters and other places that matter to the user.
+
+      The goal is not to increase the amount of information, but to make the right information easier to find and use — even when the internet is unavailable.
+  - type: text
+    heading: Developing ValmiusTurva
+    body: |-
+      ValmiusTurva is being developed in stages together with users and partners. Testing, feedback and practical experience help us assess which features are useful and how the app can be improved.
+
+      Offline functionality is an important part of development. We want to ensure that guidance, maps and other essential information saved in the app remain available without a network connection. At the same time, we are developing ways to update content and keep it current when a connection is available.
+
+      Together with municipalities and cities, ValmiusTurva can be developed for local use. Local guidance, contact details and map locations can be brought together in an agreed package, with content maintained according to jointly agreed responsibilities.
+  - type: cta
+    heading: Collaboration
+    text: |-
+      We are looking for partners who want to improve preparedness, safety and access to information.
+
+      Collaboration could involve testing the app, developing offline use, compiling local content, running a pilot or creating new features.
+
+      Would you like to hear more about ValmiusTurva or discuss working together?
+    topic: turva

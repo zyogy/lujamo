@@ -1,0 +1,81 @@
+{
+  "site": {
+    "description": "Lujamo is a small Finnish family business. We build people-centred apps and help from the first idea through launch and further development."
+  },
+  "a11y": {
+    "skip": "Skip to content",
+    "mainNav": "Main navigation",
+    "languages": "Language",
+    "currentLanguage": "current language",
+    "breadcrumb": "You are here"
+  },
+  "nav": {
+    "home": "Lujamo, home",
+    "menu": "Menu",
+    "about": "The Lujamo story",
+    "contact": "Contact",
+    "projects": "Projects"
+  },
+  "lang": {
+    "hint": "This page is also available in English.",
+    "hintLink": "Go to the English page",
+    "dismiss": "Dismiss",
+    "fallback": "This page has not been translated into English yet. The Finnish version is shown below."
+  },
+  "common": {
+    "contact": "Get in touch",
+    "readMore": "Read more",
+    "illustration": "Illustration, not a screenshot",
+    "updated": "Last updated"
+  },
+  "footer": {
+    "company": "Company",
+    "businessId": "Business ID",
+    "email": "Email",
+    "phone": "Phone",
+    "privacy": "Privacy policy",
+    "languages": "Languages",
+    "tagline": "Small steps. A bigger tomorrow.",
+    "projects": "Projects"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "optional": "optional",
+    "topic": "Topic",
+    "topicPlaceholder": "Choose a topic",
+    "topicOther": "Other",
+    "message": "Message",
+    "consent": "My details may be used to reply to this message.",
+    "consentLink": "Read the privacy policy",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "errorSummary": "Your message was not sent. Please fix the following:",
+    "success": "Thank you, your message has been sent. We usually reply within a few working days.",
+    "errorSend": "Sending failed. Please try again in a moment, or email us at {email}.",
+    "notConfigured": "The form is not in use yet. Please email us at {email}.",
+    "orEmail": "You can also email us at",
+    "errors": {
+      "nameRequired": "Enter your name.",
+      "emailRequired": "Enter your email address so we can reply.",
+      "emailInvalid": "Check the email address. It should look like name@example.com.",
+      "topicRequired": "Choose what your message is about.",
+      "messageRequired": "Write a message.",
+      "messageShort": "Write at least 10 characters.",
+      "consentRequired": "Tick the box so we can handle your message."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you were looking for does not exist or has moved.",
+    "home": "Go to the front page"
+  },
+  "mockup": {
+    "label": "Example screen from a project management app",
+    "title": "Tasks",
+    "tasks": "Design|Development|Testing|Release",
+    "progress": "Done",
+    "states": "Planned|In development|Ready to use"
+  }
+}

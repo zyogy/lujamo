@@ -1,0 +1,341 @@
+---
+/** Service and project pages, built from src/content/units/<lang>/<id>.yaml */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
+import AppMockup from '../components/AppMockup.astro';
+import ProjectList from '../components/ProjectList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import type { Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { getProjects, getUnits, pagePath, paragraphs, unitAlternates } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  id: string;
+}
+const { lang, id } = Astro.props;
+const t = useTranslations(lang);
+const unit = (await getUnits(lang)).find((u) => u.id === id)!;
+const isProject = unit.kind === 'project';
+const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
+---
+
+<BaseLayout
+  lang={lang}
+  title={unit.title}
+  description={unit.description}
+  alternates={await unitAlternates(id)}
+  accent={unit.accent}
+  fallback={unit.fallback}
+  ogImage={unit.id}
+>
+  <div lang={unit.fallback ? 'fi' : undefined}>
+    <header class="container unit-hero">
+      <nav aria-label={t('a11y.breadcrumb')}>
+        <ol class="crumbs" role="list">
+          <li><a href={pagePath('home', lang)}>Lujamo</a></li>
+          {isProject && <li><a href={pagePath('projects', lang)}>{t('nav.projects')}</a></li>}
+          <li><span aria-current="page">{unit.name}</span></li>
+        </ol>
+      </nav>
+
+      <div class:list={['unit-hero__grid', { 'unit-hero__grid--media': unit.visual }]}>
+        <div class="unit-hero__text">
+          <p class="eyebrow unit-hero__name">{unit.name}</p>
+          <h1>{unit.intro.heading}</h1>
+          <p class="lead">{unit.intro.lead}</p>
+          {
+            unit.facts && (
+              <ul class="facts" role="list">
+                {unit.facts.map((f) => (
+                  <li>{f}</li>
+                ))}
+              </ul>
+            )
+          }
+        </div>
+        {
+          unit.visual && (
+            <div class="unit-hero__media">
+              {unit.visual === 'turva-map' ? (
+                <PhoneMockup label={`${unit.name}: ${unit.label}`} caption={t('common.illustration')} />
+              ) : (
+                <div class="unit-hero__panel">
+                  <AppMockup lang={lang} />
+                </div>
+              )}
+            </div>
+          )
+        }
+      </div>
+      {unit.intro.body && <div class="unit-hero__body prose-large">{paragraphs(unit.intro.body).map((p) => <p>{p}</p>)}</div>}
+    </header>
+
+    {
+      unit.blocks.map((block, index) => {
+        const headingId = `${unit.id}-block-${index}`;
+        if (block.type === 'cta') {
+          return <CtaBand lang={lang} heading={block.heading} text={block.text} topic={block.topic} tone="dark" />;
+        }
+        if (block.type === 'projects') {
+          const list = otherProjects;
+          if (!list.length) return null;
+          return (
+            <section class="section band-white" aria-labelledby={headingId}>
+              <div class="container">
+                <h2 id={headingId} class="block__heading">
+                  {block.heading}
+                </h2>
+                {block.intro && <p class="block__intro">{block.intro}</p>}
+                <ProjectList lang={lang} projects={list} compact />
+              </div>
+            </section>
+          );
+        }
+        return (
+          <section class:list={['section', `block--${block.type}`, { 'band-white': block.type === 'steps' }]} aria-labelledby={headingId}>
+            <div class="container block">
+              <div class="block__head">
+                <h2 id={headingId} class="block__heading">
+                  {block.heading}
+                </h2>
+                {'intro' in block && block.intro && <p class="block__intro">{block.intro}</p>}
+              </div>
+
+              {block.type === 'text' && (
+                <div class="block__body prose-large">
+                  {paragraphs(block.body).map((p) => (
+                    <p>{p}</p>
+                  ))}
+                </div>
+              )}
+
+              {block.type === 'list' && (
+                <ul class="items" role="list">
+                  {block.items.map((item) => (
+                    <li>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {block.type === 'steps' && (
+                <ol class="steps" role="list">
+                  {block.items.map((item, i) => (
+                    <li>
+                      <span class="steps__num" aria-hidden="true">
+                        {i + 1}
+                      </span>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .unit-hero {
+    padding-block: var(--space-m) var(--space-2xl);
+  }
+
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.6rem;
+    padding: 0;
+    list-style: none;
+    max-width: none;
+    font-size: var(--step--1);
+    color: var(--teras);
+  }
+
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 0.6rem;
+    opacity: 0.6;
+  }
+
+  .crumbs a,
+  .crumbs span {
+    display: inline-block;
+    padding-block: 0.6rem;
+  }
+
+  .crumbs [aria-current] {
+    color: var(--graniitti);
+    font-weight: 650;
+  }
+
+  .unit-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+    margin-top: var(--space-l);
+  }
+
+  .unit-hero__name {
+    color: var(--accent);
+  }
+
+  .unit-hero h1 {
+    max-width: 22ch;
+    font-size: clamp(2.2rem, 1.4rem + 3vw, 3.2rem);
+    letter-spacing: -0.045em;
+  }
+
+  .unit-hero .lead {
+    margin-top: var(--space-m);
+    max-width: 50ch;
+  }
+
+  .unit-hero__body {
+    margin-top: var(--space-xl);
+    max-width: 66ch;
+  }
+
+  .facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--space-l);
+    padding: 0;
+    list-style: none;
+    max-width: none;
+  }
+
+  .facts li {
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    background: var(--pinta);
+    font-size: var(--step--1);
+    font-weight: 650;
+  }
+
+  .unit-hero__media {
+    display: flex;
+    justify-content: center;
+  }
+
+  .unit-hero__panel {
+    position: relative;
+    width: 100%;
+    padding: var(--space-xl) var(--space-s);
+    border-radius: var(--radius-l);
+    background: var(--metsa-syva);
+  }
+
+  @media (min-width: 56em) {
+    .unit-hero__grid--media {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  /* Blocks */
+  .block {
+    display: grid;
+    gap: var(--space-l) var(--space-2xl);
+  }
+
+  .block__heading {
+    font-size: var(--step-4);
+  }
+
+  .block__intro {
+    margin-top: var(--space-s);
+    color: var(--teras);
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .section > .container > .block__intro {
+    margin-bottom: var(--space-l);
+  }
+
+  .prose-large p {
+    font-size: var(--step-1);
+    line-height: 1.6;
+  }
+
+  .prose-large p + p {
+    margin-top: 1em;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-m);
+    padding: 0;
+    list-style: none;
+    max-width: none;
+  }
+
+  .items li {
+    padding: var(--space-l);
+    border-radius: var(--radius-l);
+    background: var(--pinta);
+  }
+
+  .items h3::before {
+    content: '';
+    display: block;
+    width: 1.8rem;
+    height: 3px;
+    margin-bottom: var(--space-s);
+    border-radius: 2px;
+    background: var(--sammal);
+  }
+
+  .items p {
+    margin-top: var(--space-2xs);
+    color: var(--teras);
+  }
+
+  /* Steps: a real sequence, numbered */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: var(--space-xl) var(--space-l);
+    padding: 0;
+    list-style: none;
+    max-width: none;
+  }
+
+  .steps__num {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-bottom: var(--space-s);
+    border-radius: 50%;
+    background: var(--sammal);
+    color: var(--graniitti);
+    font-weight: 800;
+    font-size: var(--step-1);
+  }
+
+  .steps p {
+    margin-top: var(--space-2xs);
+    color: var(--teras);
+  }
+
+  @media (min-width: 56em) {
+    .block--text .block,
+    .block--list .block {
+      grid-template-columns: 4fr 8fr;
+    }
+    .block--list .items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

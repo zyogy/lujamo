@@ -1,0 +1,94 @@
+---
+import Flag from './Flag.astro';
+import { languages, langs, type Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+}
+const { lang, alternates } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<ul class="lang-switch" aria-label={t('a11y.languages')} role="list">
+  {
+    langs.map((code) => {
+      const info = languages[code];
+      const current = code === lang;
+      return (
+        <li>
+          <a
+            href={alternates[code] ?? alternates.fi}
+            hreflang={info.hreflang}
+            lang={info.htmlLang}
+            aria-label={info.switchLabel}
+            aria-current={current ? 'true' : undefined}
+            data-lang-link={code}
+          >
+            <Flag code={info.flag} />
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    display: grid;
+    place-items: center;
+    /* 44px hit area around a 28px flag */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+
+  .flag {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    filter: saturate(0.45) brightness(1.02);
+    opacity: 0.78;
+    transition:
+      filter 180ms,
+      opacity 180ms,
+      box-shadow 180ms;
+  }
+
+  a:hover .flag,
+  a:focus-visible .flag {
+    filter: none;
+    opacity: 1;
+  }
+
+  a[aria-current] .flag {
+    filter: none;
+    opacity: 1;
+    box-shadow:
+      0 0 0 2px var(--kallio),
+      0 0 0 3.5px var(--metsa);
+  }
+
+  a:focus-visible {
+    outline-offset: -2px;
+  }
+
+  @media (max-width: 40em) {
+    .flag {
+      width: 2rem;
+      height: 2rem;
+    }
+    .lang-switch {
+      gap: 0;
+    }
+  }
+</style>

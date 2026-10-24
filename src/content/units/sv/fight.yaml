@@ -1,0 +1,18 @@
+# TODO (owner): replace the placeholder description (see fi/fight.yaml)
+kind: project
+order: 2
+accent: fight
+slug: projects/fight
+name: Luja Fight
+label: Kampsport
+title: Luja Fight – kampsport
+description: Luja Fight är Lujamos enhet för kampsport.
+summary: Luja Fight är Lujamos enhet för kampsport och arbetar med föreningar och idrottare. En utförligare beskrivning av verksamheten publiceras snart.
+intro:
+  heading: Kampsport, med samma stadiga grepp.
+  lead: Luja Fight är Lujamos enhet för kampsport. En utförligare beskrivning av verksamheten håller på att tas fram och publiceras snart på den här sidan.
+blocks:
+  - type: cta
+    heading: Representerar du en förening eller är du idrottare?
+    text: Om du vill höra om Luja Fight redan nu, skicka ett meddelande. Vi svarar direkt.
+    topic: fight

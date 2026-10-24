@@ -1,0 +1,13 @@
+---
+/** Lujamo monogram: an L whose foot grows into a leaf (after the owner's reference logo). */
+interface Props {
+  size?: number;
+}
+const { size = 28 } = Astro.props;
+---
+
+<svg class="monogram" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true" focusable="false">
+  <path
+    fill="currentColor"
+    d="M5.5 7.2 11.8 3v22.4h0.2C14.6 21.4 19.4 18.6 27.5 18.2 26.8 25.2 22 29 14.2 29H5.5Z"></path>
+</svg>

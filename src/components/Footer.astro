@@ -1,0 +1,196 @@
+---
+import Monogram from './Monogram.astro';
+import { languages, langs, type Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+import { company } from '../config/site';
+import { accentStyle, getProjects, getServices, pagePath, unitPath } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+}
+const { lang, alternates } = Astro.props;
+const t = useTranslations(lang);
+const services = await getServices(lang);
+const projects = await getProjects(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="brand" href={pagePath('home', lang)} aria-label={t('nav.home')}>
+        <Monogram size={30} />
+        <span aria-hidden="true">Lujamo</span>
+      </a>
+      <p class="site-footer__tagline">{t('footer.tagline')}</p>
+    </div>
+
+    <nav aria-labelledby="footer-site">
+      <h2 id="footer-site">{t('footer.company')}</h2>
+      <ul role="list">
+        <li><a href={pagePath('about', lang)}>{t('nav.about')}</a></li>
+        {services.map((s) => <li><a href={unitPath(s, lang)}>{s.navLabel ?? s.name}</a></li>)}
+        <li><a href={pagePath('contact', lang)}>{t('nav.contact')}</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-projects">
+      <h2 id="footer-projects"><a href={pagePath('projects', lang)}>{t('footer.projects')}</a></h2>
+      <ul role="list">
+        {
+          projects.map((p) => (
+            <li style={accentStyle(p.accent)}>
+              <a class="dot-link" href={unitPath(p, lang)}>{p.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-languages">
+      <h2 id="footer-languages">{t('footer.languages')}</h2>
+      <ul role="list">
+        {
+          langs.map((code) => (
+            <li>
+              <a
+                href={alternates[code] ?? alternates.fi}
+                hreflang={languages[code].hreflang}
+                lang={languages[code].htmlLang}
+                aria-current={code === lang ? 'true' : undefined}
+                data-lang-link={code}
+              >
+                {languages[code].name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container site-footer__legal">
+    <p>© {year} {company.legalName}</p>
+    <p>{t('footer.businessId')} {company.businessId}</p>
+    <p><a href={`mailto:${company.email}`}>{company.email}</a></p>
+    {company.phone && <p><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></p>}
+    <p><a href={pagePath('privacy', lang)}>{t('footer.privacy')}</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: var(--space-2xl) var(--space-l);
+    background: var(--pinta);
+    font-size: var(--step--1);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: var(--space-xl) var(--space-l);
+  }
+
+  .site-footer__brand {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 60em) {
+    .site-footer__grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    .site-footer__brand {
+      grid-column: auto;
+    }
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-height: 2.75rem;
+    color: var(--metsa);
+    text-decoration: none;
+  }
+
+  .brand span {
+    color: var(--graniitti);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .site-footer__tagline {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: var(--space-s);
+    color: var(--teras);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+  }
+
+  .site-footer__tagline::before {
+    content: '';
+    flex: none;
+    width: 2rem;
+    height: 2px;
+    background: var(--sammal);
+  }
+
+  h2 {
+    margin-bottom: var(--space-2xs);
+    color: var(--teras);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  h2 a {
+    text-decoration: none;
+  }
+
+  ul {
+    display: grid;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 0.35rem;
+    font-weight: 550;
+    text-decoration: none;
+  }
+
+  ul a:hover {
+    text-decoration: underline;
+  }
+
+  .dot-link::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  a[aria-current] {
+    color: var(--metsa);
+    font-weight: 750;
+  }
+
+  .site-footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem var(--space-l);
+    margin-top: var(--space-2xl);
+    color: var(--teras);
+  }
+</style>

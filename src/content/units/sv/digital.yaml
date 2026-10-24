@@ -1,0 +1,50 @@
+kind: service
+order: 1
+accent: digital
+slug: digital
+visual: app
+name: Luja Digital
+navLabel: Apputveckling
+label: Apputveckling
+title: Luja Digital – appar och programvara
+description: Apputveckling, idéutveckling, bollplank och konsultation samt planering, ledning och genomförande av projekt utifrån verkliga behov.
+summary: Apputveckling, idéutveckling, bollplank och konsultation samt planering, ledning och genomförande av projekt utifrån verkliga behov.
+highlights:
+  - Apputveckling
+  - Idéutveckling, bollplank och konsultation
+  - Projektplanering och projektledning
+  - Lansering och vidareutveckling
+intro:
+  heading: Från idé till lansering och vidareutveckling.
+  lead: Utöver apputveckling erbjuder vi idéutveckling, bollplank och konsultation samt planering, ledning och genomförande av projekt. Vi kan hjälpa till i olika skeden av utvecklingsarbetet, från att förtydliga den första idén till att lansera en fungerande app och utveckla den vidare.
+blocks:
+  - type: list
+    heading: Vad vi gör
+    items:
+      - title: Apputveckling
+        text: Vi planerar och utvecklar människocentrerade appar och digitala lösningar som ger användarna praktisk nytta.
+      - title: Idéutveckling, bollplank och konsultation
+        text: Vi hjälper till att förtydliga idén, strukturera behoven och hitta en lämplig riktning för utvecklingsarbetet.
+      - title: Projektplanering och projektledning
+        text: Vi hjälper till med planering, ledning och genomförande av projekt enligt gemensamt överenskomna mål.
+      - title: Lansering och vidareutveckling
+        text: Vi kan vara med fram till lanseringen av en fungerande app och i vidareutvecklingen utifrån användarnas erfarenheter.
+  - type: steps
+    heading: Så arbetar vi
+    intro: Samarbetet kan börja med ett samtal, med att förtydliga en idé eller med att planera ett helt appprojekt. Vi går framåt utifrån behoven och de mål vi kommer överens om tillsammans.
+    items:
+      - title: Kartläggning
+        text: Vi reder ut vilket problem som ska lösas, vem som ska använda appen och vilka begränsningar som finns. Resultatet är en skriftlig beskrivning och en uppskattning av arbetets omfattning.
+      - title: Prototyp
+        text: Vi gör en klickbar prototyp som du kan prova innan själva bygget börjar. Ändringar är billigast i det här skedet.
+      - title: Genomförande
+        text: Vi bygger appen i korta perioder och visar den halvfärdiga versionen regelbundet.
+      - title: Överlämning och underhåll
+        text: Vi publicerar appen, lämnar över dokumentationen och kommer överens om underhållet.
+  - type: projects
+    heading: Våra egna projekt
+    intro: Vi bygger också egna produkter. De visar i praktiken hur vi arbetar.
+  - type: cta
+    heading: Behöver du en app?
+    text: Berätta kort vad du behöver. Vi svarar och föreslår nästa steg.
+    topic: digital

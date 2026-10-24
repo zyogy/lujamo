@@ -1,0 +1,73 @@
+---
+/**
+ * "This page is also available in …" – rendered hidden for every other
+ * language; the site script reveals at most one, based on the visitor's saved
+ * choice or browser language. Never redirects.
+ */
+import { languages, langs, type Lang } from '../i18n/config';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  alternates: Partial<Record<Lang, string>>;
+}
+const { lang, alternates } = Astro.props;
+const t = useTranslations(lang);
+const others = langs.filter((code) => code !== lang && alternates[code]);
+---
+
+<div class="lang-hint" data-lang-hint hidden>
+  <div class="container lang-hint__inner">
+    {
+      others.map((code) => {
+        const tl = useTranslations(code);
+        return (
+          <p lang={languages[code].htmlLang} data-hint-for={code} hidden>
+            {tl('lang.hint')}{' '}
+            <a href={alternates[code]} hreflang={languages[code].hreflang} data-lang-link={code}>
+              {tl('lang.hintLink')}
+            </a>
+          </p>
+        );
+      })
+    }
+    <button type="button" class="lang-hint__close" data-hint-dismiss aria-label={t('lang.dismiss')}>
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2"></path></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .lang-hint {
+    background: var(--graniitti);
+    color: var(--pinta);
+    font-size: var(--step--1);
+  }
+
+  .lang-hint__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s);
+    min-height: 2.75rem;
+  }
+
+  .lang-hint a {
+    font-weight: 650;
+  }
+
+  .lang-hint :focus-visible {
+    outline-color: var(--pinta);
+  }
+
+  .lang-hint__close {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+</style>

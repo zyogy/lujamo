@@ -1,0 +1,109 @@
+---
+import '../styles/tokens.css';
+import '../styles/base.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LangHint from '../components/LangHint.astro';
+import { defaultLang, languages, langs, type Lang } from '../i18n/config';
+import { useTranslations, withBase } from '../i18n/utils';
+import { accentStyle } from '../lib/content';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** This page's URL in each language (for the switcher and hreflang) */
+  alternates: Partial<Record<Lang, string>>;
+  /** Unit accent token name, e.g. "digital" */
+  accent?: string;
+  /** Finnish content is shown because this language has no translation yet */
+  fallback?: boolean;
+  /** OG image name in public/og/ without extension */
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { lang, title, description, alternates, accent = 'lujamo', fallback = false, ogImage = 'lujamo', noindex = false } =
+  Astro.props;
+const t = useTranslations(lang);
+const site = Astro.site!;
+const current = Astro.url.pathname;
+const canonical = new URL(current, site).href;
+const og = new URL(withBase(`/og/${ogImage}.png`), site).href;
+---
+
+<!doctype html>
+<html lang={languages[lang].htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    {
+      !noindex &&
+        langs
+          .filter((code) => alternates[code])
+          .map((code) => <link rel="alternate" hreflang={languages[code].hreflang} href={new URL(alternates[code]!, site).href} />)
+    }
+    {!noindex && alternates[defaultLang] && <link rel="alternate" hreflang="x-default" href={new URL(alternates[defaultLang]!, site).href} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lujamo" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={languages[lang].ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href={withBase('/favicon.ico')} sizes="32x32" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <meta name="theme-color" content="#f6f4ec" />
+    <link rel="preload" href={withBase('/fonts/hanken-grotesk-latin-wght-normal.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </head>
+  <body style={accentStyle(accent)} data-lang={lang}>
+    <a class="skip-link" href="#main">{t('a11y.skip')}</a>
+    <LangHint lang={lang} alternates={alternates} />
+    <Header lang={lang} alternates={alternates} current={current} />
+    <main id="main" tabindex="-1">
+      {
+        fallback && (
+          <div class="container">
+            <p class="fallback-notice" lang={languages[lang].htmlLang}>
+              {t('lang.fallback')}
+            </p>
+          </div>
+        )
+      }
+      <slot />
+    </main>
+    <Footer lang={lang} alternates={alternates} />
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>
+
+<style>
+  main:focus {
+    outline: none;
+  }
+
+  .fallback-notice {
+    max-width: none;
+    margin-top: var(--space-m);
+    padding: var(--space-xs) var(--space-s);
+    border-radius: var(--radius);
+    background: var(--pinta);
+    font-size: var(--step--1);
+  }
+</style>

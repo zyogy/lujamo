@@ -1,0 +1,22 @@
+title: Lujamo – Hållbara appar för verkliga behov
+description: Lujamo är ett litet finländskt familjeföretag. Vi utvecklar människocentrerade appar och hjälper till från idé till lansering och vidareutveckling.
+hero:
+  heading: Hållbara appar för verkliga behov.
+  text: Lujamo är ett litet finländskt familjeföretag med apputveckling som kärnkompetens. Vi planerar och utvecklar människocentrerade appar och digitala lösningar som utgår från verkliga behov och ger användarna praktisk nytta.
+  primary: Läs om apputveckling
+  secondary: Lujamos historia
+  note: Om företaget
+  imageAlt: Ett litet träd växer på en granithäll vid havet i solnedgången.
+statement: En plats där idéer blir fungerande appar.
+service:
+  heading: Från idé till lansering och vidareutveckling.
+  text: Utöver apputveckling erbjuder vi idéutveckling, bollplank och konsultation samt planering, ledning och genomförande av projekt. Vi kan hjälpa till i olika skeden av utvecklingsarbetet, från att förtydliga den första idén till att lansera en fungerande app och utveckla den vidare.
+  button: Läs om apputveckling
+projects:
+  eyebrow: Projekt
+  heading: Våra egna projekt
+  text: Vi utvecklar också egna produkter, till exempel ValmiusTurva, en app för säkerhet och beredskap.
+  all: Alla projekt
+cta:
+  heading: Har du en idé till en app? Vi pratar gärna.
+  button: Kontakta oss
