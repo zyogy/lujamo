@@ -8,7 +8,7 @@ export const company = {
   legalName: 'Tiia Toikonniemi',
   businessId: '3657332-9',
   city: '', // Add a locality/address when supplied by the owner.
-  email: 'Tiia.toikonniemi@gmail.com',
+  email: 'tiia.toikonniemi@gmail.com',
   phone: '040 801 0878',
   phoneHref: '+358408010878',
 };

@@ -10,7 +10,7 @@ review: Draft. To be reviewed before publication (owner / legal).
 
 ## Controller
 
-Tiia Toikonniemi, sole trader (Lujamo), Finnish Business ID 3657332-9. Privacy enquiries: [Tiia.toikonniemi@gmail.com](mailto:Tiia.toikonniemi@gmail.com), phone +358 40 801 0878.
+Tiia Toikonniemi, sole trader (Lujamo), Finnish Business ID 3657332-9. Privacy enquiries: [tiia.toikonniemi@gmail.com](mailto:tiia.toikonniemi@gmail.com), phone +358 40 801 0878.
 
 ## What data we process
 

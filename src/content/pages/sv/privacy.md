@@ -10,7 +10,7 @@ review: Utkast. Ska granskas före publicering (ägare / jurist).
 
 ## Personuppgiftsansvarig
 
-Tiia Toikonniemi, enskild näringsidkare (Lujamo), FO-nummer 3657332-9. Dataskyddsfrågor: [Tiia.toikonniemi@gmail.com](mailto:Tiia.toikonniemi@gmail.com), telefon +358 40 801 0878.
+Tiia Toikonniemi, enskild näringsidkare (Lujamo), FO-nummer 3657332-9. Dataskyddsfrågor: [tiia.toikonniemi@gmail.com](mailto:tiia.toikonniemi@gmail.com), telefon +358 40 801 0878.
 
 ## Vilka uppgifter vi behandlar
 

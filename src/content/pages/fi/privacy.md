@@ -10,7 +10,7 @@ review: Luonnos. Tarkistettava ennen julkaisua (omistaja / juristi).
 
 ## Rekisterinpitäjä
 
-Tiia Toikonniemi, yksityinen elinkeinonharjoittaja (Lujamo), Y-tunnus 3657332-9. Tietosuojaa koskevat kysymykset: [Tiia.toikonniemi@gmail.com](mailto:Tiia.toikonniemi@gmail.com), puh. 040 801 0878.
+Tiia Toikonniemi, yksityinen elinkeinonharjoittaja (Lujamo), Y-tunnus 3657332-9. Tietosuojaa koskevat kysymykset: [tiia.toikonniemi@gmail.com](mailto:tiia.toikonniemi@gmail.com), puh. 040 801 0878.
 
 ## Mitä tietoja käsittelemme
 
