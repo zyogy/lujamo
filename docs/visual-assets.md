@@ -1,6 +1,18 @@
 # Website visual assets
 
-## Lujamo editorial illustration
+## Lujamo bedrock hero (current)
+
+- Website file: `public/images/lujamo-bedrock.webp` (1200 × 900).
+- Created with the built-in ImageGen tool on 2026-10-24 to replace the desk illustration at the owner's request.
+- Concept: Finnish granite bedrock communicates strength, solidity and durability without text. This is a generated photographic-style illustration, not a photograph of an identified location.
+- Generated PNG: `C:/Users/Admin/.codex/generated_images/01a16f06-0eae-74a3-991e-6a22666e5ca2/exec-d7e5bfb9-d47e-4f51-9624-af3cf3239243.png`.
+- Encoded as 1200 × 900 WebP for website delivery. Used on the home and story pages; alt text updated in Finnish, English and Swedish.
+
+Final generation prompt:
+
+> Use case: style-transfer. Asset type: replacement landscape 4:3 website hero for Lujamo, a small Finnish software company. Input image is the existing hero to replace; retain only its landscape proportions and compatibility with the site's warm off-white and forest-green palette. Completely replace the desk, devices, hands and decorative scenery. Primary request: a restrained editorial photographic image conveying the Finnish concept of structural strength, solidity and enduring reliability through Finnish granite bedrock, without any words. Scene: a low, broad expanse of unbroken weather-worn grey Finnish granite at the edge of a quiet lake. The substantial continuous granite occupies most of the lower two thirds, with its honest mineral grain, soft glacial contours and a few subtle natural seams clearly visible. Water gently meets its edge; a small distant dark pine shoreline is only a quiet backdrop along the top. No separate stacked stones, no precarious balancing. Composition: intentionally simple, low oblique viewpoint, one strong diagonal rock edge, generous quiet areas, believable ordinary Finnish landscape, no ornamental props. Style: understated Finnish architecture-magazine landscape photography, natural imperfections, restrained contrast, realistic scale and coherent stone texture, not an illustration, not a fantasy render. Lighting: soft overcast Nordic daylight, neutral grey stone and muted green, no golden glow, no sunset, no dramatic sky, no glossy wet rock, no exaggerated HDR or artificial blur. This should feel observed and confidently art-directed, never like generic AI stock artwork. No people, screens, buildings, text, letters, logos, watermark or typography of any kind. Not an RPG asset or isolated transparent object.
+
+## Earlier Lujamo editorial illustration (superseded)
 
 - Website file: `public/images/lujamo-app-development.webp` (1200 × 900).
 - Created with the built-in ImageGen tool on 2026-10-24. The illustration is not a photograph of the proprietor or their premises.

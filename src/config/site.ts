@@ -14,11 +14,11 @@ export const company = {
 };
 
 /**
- * Generated editorial illustration about people-centred app development.
+ * Generated photographic image of Finnish bedrock, expressing strength and durability.
  * Source and generation prompt: docs/visual-assets.md.
  */
 export const heroImage = {
-  src: '/images/lujamo-app-development.webp',
+  src: '/images/lujamo-bedrock.webp',
   width: 1200,
   height: 900,
 };
