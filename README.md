@@ -38,12 +38,12 @@ BASE_PATH=/lujamo
 
 Search the project for `TODO` and `PLACEHOLDER`. The main ones:
 
-1. **Company details**: `src/config/site.ts`. The official name, Y-tunnus, city/address, email and phone. The placeholders use a `.example` address and `0000000-0` on purpose.
-2. **Contact form**: get a free access key from [Web3Forms](https://web3forms.com) for the owner's email address and set `form.accessKey` in `src/config/site.ts`. Until then the form validates input but tells visitors to email instead of sending.
+1. **Company address/locality**: still to be supplied. The proprietor's name, business ID, email and phone are set in `src/config/site.ts`.
+2. **Optional contact form**: get an access key from [Web3Forms](https://web3forms.com) for the owner's email address and set `form.accessKey` in `src/config/site.ts`. Until then the contact page shows a working email link and phone number instead of a form that cannot send. Review the privacy policy before enabling a new processor.
 3. **Luja Fight description**: `src/content/units/*/fight.yaml`.
 4. **Values**: confirm the value descriptions. The company introduction, story and service descriptions have been updated from the supplied company copy.
-5. **ValmiusTurva**: add real screenshots when available (the phone on the page is a drawn illustration and is labelled as one). The product page describes its aims, offline use, development and collaboration opportunities; the existing `/projects/turva/` URL is retained.
-6. **Hero image**: the front page shows a drawn illustration made in the spirit of the owner's reference photo. To use a real photo, put it in `public/images/` (about 1600×1200, under 250 KB) and point `heroImage` in `src/config/site.ts` at it. The About page reuses the same image.
+5. **ValmiusTurva**: the site uses the app's real Finnish start-screen capture and current icon. The public URL is `/projects/valmiusturva/`; the old `/projects/turva/` paths redirect in all languages. Internal content IDs remain stable for contact topics and existing social-image filenames.
+6. **Hero image**: a generated editorial illustration about collaborative app development appears on the home and About pages. Asset provenance and the generation prompt are in `docs/visual-assets.md`.
 7. **Privacy policy**: `src/content/pages/*/privacy.md` is a draft for legal review. The Finnish version is authoritative.
 
 ## Editing content
@@ -82,7 +82,7 @@ It then appears on the Projects page, as a reference on the front page and the s
 
 **A service** (something Lujamo sells) works the same way with `kind: service` and a `navLabel`: it appears in the main navigation. The front page's green band shows the first service.
 
-A unit can show an illustration next to its intro with `visual: app` (generic app mockup) or `visual: turva-map`.
+A unit can show an illustration next to its intro with `visual: app` (generic app mockup) or `visual: valmiusturva` (actual app screenshot), and an optional `logo` image path.
 
 ## URLs and languages
 
@@ -98,7 +98,7 @@ The `.github/workflows/deploy-pages.yml` workflow validates translations, builds
 
 In the repository's **Settings → Pages**, the publishing source is **GitHub Actions**. The workflow obtains the origin and repository base path from `actions/configure-pages`, so asset links, canonical URLs, language links and the contact-form redirect match the deployment. No separate deployment token is required.
 
-Local `.env.production` is ignored by Git and is not uploaded. Company and form placeholders in `src/config/site.ts` still need real values before accepting enquiries.
+Local `.env.production` is ignored by Git and is not uploaded. Email and phone contact work directly; the optional form remains disabled until its access key is configured.
 
 ### Optional: Neocities
 

@@ -51,7 +51,7 @@ writeFileSync('public/favicon.ico', Buffer.concat([header, png32]));
 const h = (type, style, children) => ({ type, props: { style, children } });
 const monoSrc = `data:image/svg+xml;base64,${Buffer.from(monogram()).toString('base64')}`;
 
-function card({ title, subtitle, accent, path }) {
+function card({ title, subtitle, accent, path, logo }) {
   return h('div', { width: 1200, height: 630, display: 'flex', background: color.bg, fontFamily: 'Hanken', position: 'relative' }, [
     h('div', { position: 'absolute', left: 96, top: 96, display: 'flex', alignItems: 'center' }, [
       h('div', { width: 56, height: 4, background: color.moss, marginRight: 22 }),
@@ -64,7 +64,7 @@ function card({ title, subtitle, accent, path }) {
         h('div', { fontSize: 40, fontWeight: 500, color: color.steel }, subtitle),
       ]),
     ]),
-    { type: 'img', props: { src: monoSrc, width: 120, height: 120, style: { position: 'absolute', right: 96, bottom: 84 } } },
+    { type: 'img', props: { src: logo ?? monoSrc, width: 120, height: 120, style: { position: 'absolute', right: 96, bottom: 84 } } },
     h('div', { position: 'absolute', left: 0, bottom: 0, width: 1200, height: 18, background: color.forest }),
   ]);
 }
@@ -80,6 +80,7 @@ const cards = [
     title: u.name,
     subtitle: u.label,
     accent: token(u.accent),
+    logo: u.logo ? `data:image/png;base64,${readFileSync(`public${u.logo}`).toString('base64')}` : undefined,
     path: u.kind === 'project' ? 'Lujamo  /  Projektit' : 'Lujamo',
   })),
 ];

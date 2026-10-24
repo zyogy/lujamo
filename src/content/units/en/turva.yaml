@@ -1,8 +1,8 @@
 kind: project
 order: 1
 accent: turva
-slug: projects/turva
-visual: turva-map
+slug: projects/valmiusturva
+visual: valmiusturva
 name: ValmiusTurva
 label: Preparedness app
 title: ValmiusTurva – preparedness app
@@ -38,3 +38,4 @@ blocks:
 
       Would you like to hear more about ValmiusTurva or discuss working together?
     topic: turva
+logo: /images/valmiusturva-logo.png

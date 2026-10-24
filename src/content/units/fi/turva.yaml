@@ -1,8 +1,8 @@
 kind: project
 order: 1
 accent: turva
-slug: projects/turva
-visual: turva-map
+slug: projects/valmiusturva
+visual: valmiusturva
 name: ValmiusTurva
 label: Varautumissovellus
 title: ValmiusTurva – varautumissovellus
@@ -38,3 +38,4 @@ blocks:
 
       Haluatko kuulla lisää ValmiusTurvasta tai keskustella mahdollisesta yhteistyöstä?
     topic: turva
+logo: /images/valmiusturva-logo.png

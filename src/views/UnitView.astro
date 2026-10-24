@@ -1,12 +1,12 @@
 ---
 /** Service and project pages, built from src/content/units/<lang>/<id>.yaml */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PhoneMockup from '../components/PhoneMockup.astro';
+import ValmiusTurvaPreview from '../components/ValmiusTurvaPreview.astro';
 import AppMockup from '../components/AppMockup.astro';
 import ProjectList from '../components/ProjectList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import type { Lang } from '../i18n/config';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, withBase } from '../i18n/utils';
 import { getProjects, getUnits, pagePath, paragraphs, unitAlternates } from '../lib/content';
 
 interface Props {
@@ -41,6 +41,7 @@ const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
 
       <div class:list={['unit-hero__grid', { 'unit-hero__grid--media': unit.visual }]}>
         <div class="unit-hero__text">
+          {unit.logo && <img class="unit-hero__logo" src={withBase(unit.logo)} alt={`${unit.name} logo`} width="80" height="80" />}
           <p class="eyebrow unit-hero__name">{unit.name}</p>
           <h1>{unit.intro.heading}</h1>
           <p class="lead">{unit.intro.lead}</p>
@@ -57,8 +58,8 @@ const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
         {
           unit.visual && (
             <div class="unit-hero__media">
-              {unit.visual === 'turva-map' ? (
-                <PhoneMockup label={`${unit.name}: ${unit.label}`} caption={t('common.illustration')} />
+              {unit.visual === 'valmiusturva' ? (
+                <ValmiusTurvaPreview lang={lang} />
               ) : (
                 <div class="unit-hero__panel">
                   <AppMockup lang={lang} />
@@ -185,6 +186,13 @@ const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
 
   .unit-hero__name {
     color: var(--accent);
+  }
+
+  .unit-hero__logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1.2rem;
+    margin-bottom: var(--space-m);
   }
 
   .unit-hero h1 {

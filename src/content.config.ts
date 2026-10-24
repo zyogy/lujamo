@@ -50,8 +50,9 @@ const units = defineCollection({
     summary: z.string(), // front page text
     highlights: z.array(z.string()).optional(), // front page short list (services)
     facts: z.array(z.string()).optional(), // key facts (projects)
-    // illustration next to the page intro: 'app' = generic app mockup, 'turva-map' = ValmiusTurva's map screen
-    visual: z.enum(['app', 'turva-map']).optional(),
+    logo: z.string().optional(),
+    // 'app' is a generic illustration; 'valmiusturva' shows the actual app.
+    visual: z.enum(['app', 'valmiusturva']).optional(),
     intro: z.object({ heading: z.string(), lead: z.string(), body: z.string().optional() }),
     blocks: z.array(block).default([]),
   }),

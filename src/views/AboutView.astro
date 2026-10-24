@@ -42,9 +42,10 @@ const home = (await getPage(lang, 'home')).entry.data;
     <section class="container section details" aria-labelledby="about-details">
       <h2 id="about-details">{page.detailsHeading}</h2>
       <dl>
-        <div><dt>{t('footer.company')}</dt><dd>{company.legalName}</dd></div>
+        <div><dt>{t('footer.company')}</dt><dd>{company.legalName}<br />{t('company.soleTrader')}</dd></div>
         <div><dt>{t('footer.businessId')}</dt><dd>{company.businessId}</dd></div>
         <div><dt>{t('footer.email')}</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+        <div><dt>{t('footer.phone')}</dt><dd><a href={`tel:${company.phoneHref}`}>{company.phone}</a></dd></div>
       </dl>
     </section>
 

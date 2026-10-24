@@ -1,8 +1,8 @@
 ---
 title: Privacy policy – Lujamo
-description: How Lujamo handles information received through this website and its contact form.
+description: How Lujamo handles information received when you contact us.
 heading: Privacy policy
-updated: '2026-09-23'
+updated: '2026-10-24'
 review: Draft. To be reviewed before publication (owner / legal).
 ---
 
@@ -10,21 +10,21 @@ review: Draft. To be reviewed before publication (owner / legal).
 
 ## Controller
 
-Lujamo. Business ID and address: see the bottom of this page. Questions about privacy can be sent to the same email address.
+Tiia Toikonniemi, sole trader (Lujamo), Finnish Business ID 3657332-9. Privacy enquiries: [Tiia.toikonniemi@gmail.com](mailto:Tiia.toikonniemi@gmail.com), phone +358 40 801 0878.
 
 ## What data we process
 
 This website does not use cookies or visitor analytics.
 
-When you send a message through the contact form, we process the details you give: name, email address, phone number (if given), topic and message.
+When you contact us by email or phone, we process information you provide for the enquiry, such as your name, contact details, subject and message.
 
 ## Why we process it
 
-We use the data only to reply to your message and for related communication. The legal basis is your consent, given on the form, and our legitimate interest in replying to messages sent to us.
+We use the data only to reply to your message and for related communication. The legal basis will be confirmed when this draft is reviewed.
 
 ## Who processes it
 
-Form messages are forwarded to our email through the Web3Forms service. The website is hosted on Neocities, which may store technical log data such as IP addresses to run and secure its service.
+The contact button opens your own email application. Messages are received in Gmail. The website is hosted on GitHub Pages. Service providers' data processing and any technical logging will be reviewed when this policy is finalised.
 
 <!-- TODO: confirm processors, their locations and whether data leaves the EU/EEA. -->
 

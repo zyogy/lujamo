@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import type { Lang } from '../i18n/config';
 import { useTranslations } from '../i18n/utils';
-import { company } from '../config/site';
+import { company, formConfigured } from '../config/site';
 import { getPage, pageAlternates } from '../lib/content';
 
 interface Props {
@@ -27,14 +27,17 @@ const page = entry.data;
       <div class="contact-grid">
         <section class="contact-form-panel" aria-labelledby="form-title">
           <h2 id="form-title">{page.formHeading}</h2>
-          <ContactForm lang={lang} />
+          {formConfigured ? <ContactForm lang={lang} /> : <>
+            <p>{t('contact.emailIntro')}</p>
+            <a class="button contact-email" href={`mailto:${company.email}`}>{t('contact.emailButton')}</a>
+          </>}
         </section>
         <section aria-labelledby="details-title" class="details">
           <h2 id="details-title">{page.detailsHeading}</h2>
           <dl>
             <div><dt>{t('footer.email')}</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
-            {company.phone && <div><dt>{t('footer.phone')}</dt><dd><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></dd></div>}
-            <div><dt>{t('footer.company')}</dt><dd>{company.legalName}, {company.city}</dd></div>
+            {company.phone && <div><dt>{t('footer.phone')}</dt><dd><a href={`tel:${company.phoneHref}`}>{company.phone}</a></dd></div>}
+            <div><dt>{t('footer.company')}</dt><dd>{company.legalName}<br />{t('company.soleTrader')}{company.city && <><br />{company.city}</>}</dd></div>
             <div><dt>{t('footer.businessId')}</dt><dd>{company.businessId}</dd></div>
           </dl>
         </section>
@@ -55,6 +58,7 @@ const page = entry.data;
 
   .contact-grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-2xl);
     padding-bottom: var(--space-2xl);
   }
@@ -89,11 +93,16 @@ const page = entry.data;
   .details dd {
     margin: 0;
     font-weight: 550;
+    overflow-wrap: anywhere;
+  }
+
+  .contact-email {
+    margin-top: var(--space-m);
   }
 
   @media (min-width: 60em) {
     .contact-grid {
-      grid-template-columns: 7fr 4fr;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
     }
   }
 </style>

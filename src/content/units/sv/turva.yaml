@@ -1,8 +1,8 @@
 kind: project
 order: 1
 accent: turva
-slug: projects/turva
-visual: turva-map
+slug: projects/valmiusturva
+visual: valmiusturva
 name: ValmiusTurva
 label: Beredskapsapp
 title: ValmiusTurva – beredskapsapp
@@ -38,3 +38,4 @@ blocks:
 
       Vill du höra mer om ValmiusTurva eller diskutera ett möjligt samarbete?
     topic: turva
+logo: /images/valmiusturva-logo.png

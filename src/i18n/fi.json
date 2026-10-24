@@ -77,5 +77,16 @@
     "tasks": "Suunnittelu|Kehitys|Testaus|Julkaisu",
     "progress": "Valmis",
     "states": "Suunniteltu|Kehityksessä|Valmis käyttöön"
+  },
+  "company": {
+    "soleTrader": "Yksityinen elinkeinonharjoittaja"
+  },
+  "contact": {
+    "emailIntro": "Kerro ideastasi, sovellustarpeestasi tai yhteistyöehdotuksestasi sähköpostilla. Voit myös soittaa meille.",
+    "emailButton": "Lähetä sähköpostia"
+  },
+  "valmiusturva": {
+    "screenshotAlt": "ValmiusTurvan aloitusnäkymä: toimintaohjeet, väestönsuojan etsiminen ja varautuminen.",
+    "screenshotCaption": "ValmiusTurva – Lujamon oma sovellus. Kuvakaappaus suomenkielisestä aloitusnäkymästä."
   }
 }

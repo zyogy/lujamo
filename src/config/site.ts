@@ -1,28 +1,26 @@
 /**
  * Company details shown in the footer, contact page and privacy policy.
  *
- * TODO (owner): every value marked PLACEHOLDER must be confirmed before launch.
- * Placeholders use the reserved .example domain and zeroed IDs on purpose so
- * they can never be mistaken for real details.
+ * Lujamo is the public brand; the business operates under the proprietor's name.
  */
 export const company = {
   name: 'Lujamo',
-  legalName: 'Lujamo', // PLACEHOLDER – official registered name (Oy / Tmi / …)?
-  businessId: '0000000-0', // PLACEHOLDER – Y-tunnus
-  city: 'Suomi', // PLACEHOLDER – city / postal address
-  email: 'info@lujamo.example', // PLACEHOLDER – shared contact address
-  phone: '', // PLACEHOLDER – leave empty to hide
+  legalName: 'Tiia Toikonniemi',
+  businessId: '3657332-9',
+  city: '', // Add a locality/address when supplied by the owner.
+  email: 'Tiia.toikonniemi@gmail.com',
+  phone: '040 801 0878',
+  phoneHref: '+358408010878',
 };
 
 /**
- * Front page hero image. The default is a drawn illustration
- * (scripts/make-hero-art.mjs). To use a photo: put it in public/images/,
- * e.g. hero.jpg (about 1600×1200, under 250 KB), and point `src` at it.
+ * Generated editorial illustration about people-centred app development.
+ * Source and generation prompt: docs/visual-assets.md.
  */
 export const heroImage = {
-  src: '/images/lujamo-hero.svg',
-  width: 800,
-  height: 600,
+  src: '/images/lujamo-app-development.webp',
+  width: 1200,
+  height: 900,
 };
 
 /**

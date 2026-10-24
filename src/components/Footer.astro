@@ -71,10 +71,10 @@ const year = new Date().getFullYear();
   </div>
 
   <div class="container site-footer__legal">
-    <p>© {year} {company.legalName}</p>
+    <p>© {year} {company.name} · {company.legalName}</p>
     <p>{t('footer.businessId')} {company.businessId}</p>
     <p><a href={`mailto:${company.email}`}>{company.email}</a></p>
-    {company.phone && <p><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></p>}
+    {company.phone && <p><a href={`tel:${company.phoneHref}`}>{company.phone}</a></p>}
     <p><a href={pagePath('privacy', lang)}>{t('footer.privacy')}</a></p>
   </div>
 </footer>

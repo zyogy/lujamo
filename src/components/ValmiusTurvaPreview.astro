@@ -1,0 +1,52 @@
+---
+import type { Lang } from '../i18n/config';
+import { useTranslations, withBase } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<figure class="app-preview">
+  <div class="app-preview__frame">
+    <img
+      src={withBase('/images/valmiusturva-start.png')}
+      alt={t('valmiusturva.screenshotAlt')}
+      width="412"
+      height="915"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+  <figcaption>{t('valmiusturva.screenshotCaption')}</figcaption>
+</figure>
+
+<style>
+  .app-preview {
+    width: min(100%, 20rem);
+    margin-inline: auto;
+  }
+
+  .app-preview__frame {
+    overflow: hidden;
+    border: 7px solid #14281e;
+    border-radius: 1.8rem;
+    background: #f2f4f8;
+    box-shadow: var(--shadow);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  figcaption {
+    margin-top: var(--space-s);
+    text-align: center;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+</style>

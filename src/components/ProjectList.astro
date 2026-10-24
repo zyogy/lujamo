@@ -4,7 +4,7 @@
  * service page); otherwise larger entries with key facts (Projects page).
  */
 import type { Lang } from '../i18n/config';
-import { useTranslations } from '../i18n/utils';
+import { useTranslations, withBase } from '../i18n/utils';
 import { accentStyle, unitPath, type Unit } from '../lib/content';
 
 interface Props {
@@ -22,6 +22,7 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3';
   {
     projects.map((p) => (
       <li class="project" style={accentStyle(p.accent)}>
+        {p.logo && <img class="project__logo" src={withBase(p.logo)} alt={`${p.name} logo`} width="64" height="64" loading="lazy" />}
         <p class="project__label">{p.label}</p>
         <Heading class="project__name">
           <a href={unitPath(p, lang)}>{p.name}</a>
@@ -83,6 +84,13 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3';
     color: var(--teras);
     font-size: var(--step--1);
     font-weight: 600;
+  }
+
+  .project__logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    margin-bottom: var(--space-m);
   }
 
   .project__label::before {

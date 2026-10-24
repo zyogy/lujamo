@@ -77,5 +77,16 @@
     "tasks": "Design|Development|Testing|Release",
     "progress": "Done",
     "states": "Planned|In development|Ready to use"
+  },
+  "company": {
+    "soleTrader": "Sole trader"
+  },
+  "contact": {
+    "emailIntro": "Tell us about your idea, app needs or collaboration proposal by email. You can also give us a call.",
+    "emailButton": "Send an email"
+  },
+  "valmiusturva": {
+    "screenshotAlt": "ValmiusTurva start screen with guidance, shelter search and preparedness options.",
+    "screenshotCaption": "ValmiusTurva – an app by Lujamo. Screenshot of the Finnish start screen."
   }
 }

@@ -2,7 +2,7 @@ kind: service
 order: 1
 accent: digital
 slug: digital
-visual: app
+visual: valmiusturva
 name: Luja Digital
 navLabel: App development
 label: App development

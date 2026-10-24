@@ -77,5 +77,16 @@
     "tasks": "Planering|Utveckling|Testning|Lansering",
     "progress": "Klart",
     "states": "Planerat|Under utveckling|Klart att använda"
+  },
+  "company": {
+    "soleTrader": "Enskild näringsidkare"
+  },
+  "contact": {
+    "emailIntro": "Berätta om din idé, ditt appbehov eller ditt samarbetsförslag via e-post. Du kan också ringa oss.",
+    "emailButton": "Skicka e-post"
+  },
+  "valmiusturva": {
+    "screenshotAlt": "ValmiusTurvas startvy med anvisningar, sökning efter skyddsrum och beredskap.",
+    "screenshotCaption": "ValmiusTurva – Lujamos egen app. Skärmbild av den finskspråkiga startvyn."
   }
 }

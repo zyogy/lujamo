@@ -1,8 +1,8 @@
 ---
 title: Dataskyddsbeskrivning – Lujamo
-description: Hur Lujamo behandlar uppgifter som tas emot via webbplatsen och kontaktformuläret.
+description: Hur Lujamo behandlar uppgifter som tas emot när du kontaktar oss.
 heading: Dataskyddsbeskrivning
-updated: '2026-09-23'
+updated: '2026-10-24'
 review: Utkast. Ska granskas före publicering (ägare / jurist).
 ---
 
@@ -10,21 +10,21 @@ review: Utkast. Ska granskas före publicering (ägare / jurist).
 
 ## Personuppgiftsansvarig
 
-Lujamo. FO-nummer och adress: se längst ner på sidan. Frågor om dataskydd kan skickas till samma e-postadress.
+Tiia Toikonniemi, enskild näringsidkare (Lujamo), FO-nummer 3657332-9. Dataskyddsfrågor: [Tiia.toikonniemi@gmail.com](mailto:Tiia.toikonniemi@gmail.com), telefon +358 40 801 0878.
 
 ## Vilka uppgifter vi behandlar
 
 Webbplatsen använder inte kakor eller besöksstatistik.
 
-När du skickar ett meddelande via kontaktformuläret behandlar vi de uppgifter du lämnar: namn, e-postadress, telefonnummer (om du anger det), ämne och meddelande.
+När du kontaktar oss via e-post eller telefon behandlar vi de uppgifter du lämnar för kontakten, såsom namn, kontaktuppgifter, ämne och meddelande.
 
 ## Varför uppgifterna behandlas
 
-Vi använder uppgifterna bara för att svara på ditt meddelande och för kommunikation som hör till det. Grunden för behandlingen är ditt samtycke, som du ger i formuläret, och vårt berättigade intresse att svara på meddelanden som skickas till oss.
+Vi använder uppgifterna bara för att svara på ditt meddelande och för kommunikation som hör till det. Den rättsliga grunden fastställs när detta utkast granskas.
 
 ## Vem som behandlar uppgifterna
 
-Meddelanden från formuläret vidarebefordras till vår e-post via tjänsten Web3Forms. Webbplatsen finns hos Neocities, som kan spara tekniska loggdata, till exempel IP-adresser, för att driva och skydda sin tjänst.
+Kontaktknappen öppnar användarens eget e-postprogram. Meddelandena tas emot i Gmail. Webbplatsen finns hos GitHub Pages. Tjänsteleverantörernas behandling av uppgifter och eventuell teknisk loggning granskas när beskrivningen färdigställs.
 
 <!-- TODO: confirm processors, their locations and whether data leaves the EU/EEA. -->
 

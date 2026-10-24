@@ -12,12 +12,18 @@ const env = { ...loadEnv(mode, process.cwd(), ''), ...process.env };
 // BASE_PATH: only needed when the site is served from a subfolder, e.g. /lujamo
 const site = env.SITE_URL || 'https://zyogy.github.io';
 const base = env.BASE_PATH || '/';
+const publicPath = (path) => `${base.replace(/\/+$/, '')}${path}`;
 
 export default defineConfig({
   site,
   base,
   output: 'static',
   trailingSlash: 'always',
+  redirects: {
+    '/projects/turva/': publicPath('/projects/valmiusturva/'),
+    '/en/projects/turva/': publicPath('/en/projects/valmiusturva/'),
+    '/sv/projects/turva/': publicPath('/sv/projects/valmiusturva/'),
+  },
   build: {
     format: 'directory',
     // Neocities-safe asset folder name (no leading underscore)

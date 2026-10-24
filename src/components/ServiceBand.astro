@@ -1,6 +1,6 @@
 ---
 /** Full-width deep-green band presenting a service (front page). */
-import AppMockup from './AppMockup.astro';
+import ValmiusTurvaPreview from './ValmiusTurvaPreview.astro';
 import ContourLines from './ContourLines.astro';
 import type { Lang } from '../i18n/config';
 import { unitPath, type Unit } from '../lib/content';
@@ -35,7 +35,7 @@ const headingId = `service-${unit.id}`;
       <a class="button" href={unitPath(unit, lang)}>{button}</a>
     </div>
     <div class="service__media">
-      <AppMockup lang={lang} />
+      <ValmiusTurvaPreview lang={lang} />
     </div>
   </div>
 </section>
