@@ -1,0 +1,46 @@
+kind: project
+order: 1.5
+accent: tuokiot
+slug: projects/paivan-tuokiot
+name: Päivän tuokiot
+label: Early childhood education
+title: Päivän tuokiot – ideas for early childhood education
+description: Päivän tuokiot helps early childhood educators plan circle time and activities with ready-made ideas, age-group choices and a quick substitute-teacher programme.
+summary: Päivän tuokiot brings circle time, guided activities and children's ideas together in a practical tool for early childhood educators.
+logo: /images/paivan-tuokiot-icon.png
+facts:
+  - Circle time and guided activities
+  - Ideas for different age groups
+  - In development
+screenshot:
+  src: /images/paivan-tuokiot-home.jpg
+  alt: The Finnish Päivän tuokiot home screen with age groups and choices for crafts, music, movement, nature and emotional learning.
+  caption: Screenshot of the Finnish browser version of Päivän tuokiot.
+  width: 412
+  height: 915
+intro:
+  heading: More time for moments together.
+  lead: Päivän tuokiot is a Lujamo app for circle time and activities in early childhood education. It helps educators find a suitable idea and move from planning to doing things together.
+  body: Ready-made programmes and step-by-step instructions support educators in their work. Activities can be explored by age group and topic, and useful ideas saved for later.
+blocks:
+  - type: list
+    heading: Support throughout the day
+    items:
+      - title: Ready for circle time
+        text: A ready-made 15-minute programme gives circle time a clear structure. Seasonal themes bring variety to shared activities.
+      - title: Activities for different ages
+        text: Crafts, music, movement, nature and emotional learning. Age-group choices help educators find activities suited to their group.
+      - title: A quick substitute-teacher programme
+        text: When preparation time is short, the substitute button puts together a short programme that needs no materials.
+      - title: Children's ideas and favourites
+        text: Save children's suggestions and mark successful activities as favourites to return to them later.
+  - type: text
+    heading: Development shaped by everyday work
+    body: |-
+      Päivän tuokiot is being developed as a practical tool for early childhood educators. Its aim is to simplify planning and leave more time for engaging with children.
+
+      The app has browser and Android versions. The browser version's content can also be used offline once the app has been loaded and cached on the device.
+  - type: cta
+    heading: Interested in Päivän tuokiot?
+    text: Would you like to learn more, discuss a trial or share an idea from your work in early childhood education? Get in touch and let's talk.
+    topic: tuokiot

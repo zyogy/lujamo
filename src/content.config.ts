@@ -51,6 +51,7 @@ const units = defineCollection({
     highlights: z.array(z.string()).optional(), // front page short list (services)
     facts: z.array(z.string()).optional(), // key facts (projects)
     logo: z.string().optional(),
+    screenshot: z.object({ src: z.string(), alt: z.string(), caption: z.string(), width: z.number(), height: z.number() }).optional(),
     // 'app' is a generic illustration; 'valmiusturva' shows the actual app.
     visual: z.enum(['app', 'valmiusturva']).optional(),
     intro: z.object({ heading: z.string(), lead: z.string(), body: z.string().optional() }),

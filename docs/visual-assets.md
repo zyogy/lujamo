@@ -18,3 +18,11 @@ These files were copied from the app project with the owner's permission. The ap
 - `public/images/valmiusturva-logo.png`: copied from `C:/Projects/Apps/Valmiusturva/web/icons/icon-512.png`.
 - `public/images/valmiusturva-start.png`: copied from `C:/Projects/Apps/Valmiusturva/build/startup-review/fi-phone.png` (412 × 915), showing the real Finnish start screen. It is identified as a Finnish screenshot in every language version of the website.
 - The original files remain in the app project unchanged.
+
+## Päivän tuokiot
+
+- The app is stored in `C:/Projects/Apps/Leikki` and `C:/Projects/Apps/Leikki-Android`; its current display name in both projects is Päivän tuokiot.
+- `public/images/paivan-tuokiot-icon.png`: copied from `C:/Projects/Apps/Leikki/public/icons/icon-512.png`.
+- `public/images/paivan-tuokiot-home.jpg`: captured on 2026-10-24 from the existing production build of the Leikki browser app, served locally with its `scripts/serve-production.mjs` script. Viewport: 412 × 915. It shows the Finnish home screen with no personal data.
+- The caption identifies this as the Finnish browser version, rather than the newer Android interface. No source files in either app project were edited.
+- Showcase copy is based on the app README files and implemented activity categories, age-group selection, morning-circle programme, substitute programme, children's ideas and favourites. No public download or release date is claimed.

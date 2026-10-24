@@ -1,0 +1,46 @@
+kind: project
+order: 1.5
+accent: tuokiot
+slug: projects/paivan-tuokiot
+name: Päivän tuokiot
+label: Varhaiskasvatuksen arkeen
+title: Päivän tuokiot – ideoita varhaiskasvatuksen arkeen
+description: Päivän tuokiot auttaa varhaiskasvattajia suunnittelemaan aamupiirejä ja toimintatuokioita. Valmiita ideoita, ikäryhmävalinnat ja apua sijaisen päivään.
+summary: Päivän tuokiot kokoaa aamupiirit, toimintatuokiot ja lasten ideat helposti käytettäväksi avuksi varhaiskasvatuksen arkeen.
+logo: /images/paivan-tuokiot-icon.png
+facts:
+  - Aamupiirit ja toimintatuokiot
+  - Ideoita eri ikäryhmille
+  - Kehitteillä
+screenshot:
+  src: /images/paivan-tuokiot-home.jpg
+  alt: Päivän tuokiot -sovelluksen etusivu, jossa näkyvät ikäryhmät sekä askartelun, musiikin, liikunnan, luonnon ja tunnekasvatuksen valinnat.
+  caption: Kuvakaappaus Päivän tuokiot -sovelluksen suomenkielisestä selainversiosta.
+  width: 412
+  height: 915
+intro:
+  heading: Enemmän aikaa yhteisiin tuokioihin.
+  lead: Päivän tuokiot on Lujamon kehittämä sovellus varhaiskasvatuksen aamupiireihin ja toimintatuokioihin. Se auttaa löytämään sopivan idean ja siirtymään suunnittelusta yhteiseen tekemiseen.
+  body: Valmiit ohjelmat ja vaiheittaiset ohjeet tukevat kasvattajan omaa työtä. Sisältöä voi etsiä ikäryhmän ja aiheen mukaan, ja hyvät ideat voi tallentaa myöhempää käyttöä varten.
+blocks:
+  - type: list
+    heading: Apua päivän eri hetkiin
+    items:
+      - title: Aamupiiri valmiiksi
+        text: Valmis 15 minuutin ohjelma antaa aamupiirille selkeän rungon. Vuodenaikoihin liittyvät teemat tuovat vaihtelua yhteisiin hetkiin.
+      - title: Tekemistä eri ikäryhmille
+        text: Askartelua, musiikkia, liikuntaa, luontoa ja tunnekasvatusta. Ikäryhmävalinnat auttavat löytämään ryhmälle sopivia tuokioita.
+      - title: Sijaisnappi
+        text: Kun valmisteluaikaa on vähän, sijaisnappi kokoaa lyhyen ohjelman, johon ei tarvita tarvikkeita.
+      - title: Lasten ideat ja suosikit
+        text: Lasten ehdotuksia voi ottaa talteen ja toimiviksi havaittuja tuokioita merkitä suosikeiksi seuraavia kertoja varten.
+  - type: text
+    heading: Käytännön työstä lähtevää kehitystä
+    body: |-
+      Päivän tuokioista kehitetään käytännöllistä työkalua varhaiskasvatuksen ammattilaisille. Tavoitteena on helpottaa suunnittelua ja jättää enemmän aikaa lasten kohtaamiseen.
+
+      Sovelluksesta on selain- ja Android-versio. Selainversion sisältöjä voi käyttää myös ilman verkkoyhteyttä, kun sovellus on ensin ladattu ja tallentunut laitteen välimuistiin.
+  - type: cta
+    heading: Kiinnostuitko Päivän tuokioista?
+    text: Haluatko kuulla lisää, keskustella kokeilusta tai jakaa varhaiskasvatuksen arjessa syntyneen kehitysidean? Ota yhteyttä, niin jutellaan.
+    topic: tuokiot

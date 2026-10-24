@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ValmiusTurvaPreview from '../components/ValmiusTurvaPreview.astro';
 import AppMockup from '../components/AppMockup.astro';
+import AppScreenshot from '../components/AppScreenshot.astro';
 import ProjectList from '../components/ProjectList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import type { Lang } from '../i18n/config';
@@ -39,7 +40,7 @@ const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
         </ol>
       </nav>
 
-      <div class:list={['unit-hero__grid', { 'unit-hero__grid--media': unit.visual }]}>
+      <div class:list={['unit-hero__grid', { 'unit-hero__grid--media': unit.visual || unit.screenshot }]}>
         <div class="unit-hero__text">
           {unit.logo && <img class="unit-hero__logo" src={withBase(unit.logo)} alt={`${unit.name} logo`} width="80" height="80" />}
           <p class="eyebrow unit-hero__name">{unit.name}</p>
@@ -56,9 +57,11 @@ const otherProjects = (await getProjects(lang)).filter((p) => p.id !== id);
           }
         </div>
         {
-          unit.visual && (
+          (unit.visual || unit.screenshot) && (
             <div class="unit-hero__media">
-              {unit.visual === 'valmiusturva' ? (
+              {unit.screenshot ? (
+                <AppScreenshot {...unit.screenshot} />
+              ) : unit.visual === 'valmiusturva' ? (
                 <ValmiusTurvaPreview lang={lang} />
               ) : (
                 <div class="unit-hero__panel">

@@ -1,0 +1,46 @@
+kind: project
+order: 1.5
+accent: tuokiot
+slug: projects/paivan-tuokiot
+name: Päivän tuokiot
+label: För småbarnspedagogikens vardag
+title: Päivän tuokiot – idéer för småbarnspedagogiken
+description: Päivän tuokiot hjälper pedagoger att planera morgonsamlingar och aktiviteter med färdiga idéer, val av åldersgrupp och ett snabbt program för vikarier.
+summary: Päivän tuokiot samlar morgonsamlingar, aktiviteter och barnens idéer i ett praktiskt verktyg för småbarnspedagogikens vardag.
+logo: /images/paivan-tuokiot-icon.png
+facts:
+  - Morgonsamlingar och aktiviteter
+  - Idéer för olika åldersgrupper
+  - Under utveckling
+screenshot:
+  src: /images/paivan-tuokiot-home.jpg
+  alt: Den finska startsidan i Päivän tuokiot med åldersgrupper och val för pyssel, musik, rörelse, natur och känslofostran.
+  caption: Skärmbild från den finskspråkiga webbläsarversionen av Päivän tuokiot.
+  width: 412
+  height: 915
+intro:
+  heading: Mer tid för gemensamma stunder.
+  lead: Päivän tuokiot är en app från Lujamo för morgonsamlingar och aktiviteter inom småbarnspedagogiken. Den hjälper pedagoger att hitta en lämplig idé och gå från planering till gemensamt skapande och lek.
+  body: Färdiga program och stegvisa instruktioner stöder pedagogens eget arbete. Aktiviteter kan sökas efter åldersgrupp och tema, och bra idéer kan sparas till senare.
+blocks:
+  - type: list
+    heading: Stöd under dagens olika stunder
+    items:
+      - title: Redo för morgonsamlingen
+        text: Ett färdigt program på 15 minuter ger morgonsamlingen en tydlig struktur. Årstidsteman skapar variation i de gemensamma stunderna.
+      - title: Aktiviteter för olika åldrar
+        text: Pyssel, musik, rörelse, natur och känslofostran. Val av åldersgrupp hjälper pedagogen att hitta aktiviteter som passar gruppen.
+      - title: Ett snabbt program för vikarier
+        text: När förberedelsetiden är kort sammanställer vikarieknappen ett kort program som inte kräver något material.
+      - title: Barnens idéer och favoriter
+        text: Spara barnens förslag och markera lyckade aktiviteter som favoriter för att enkelt hitta dem nästa gång.
+  - type: text
+    heading: Utveckling med vardagen som utgångspunkt
+    body: |-
+      Päivän tuokiot utvecklas till ett praktiskt verktyg för yrkesverksamma inom småbarnspedagogiken. Målet är att underlätta planeringen och ge mer tid för mötet med barnen.
+
+      Appen finns som webbläsar- och Android-version. Innehållet i webbläsarversionen kan också användas utan nätanslutning när appen först har laddats och sparats i enhetens cache.
+  - type: cta
+    heading: Intresserad av Päivän tuokiot?
+    text: Vill du veta mer, diskutera ett försök eller dela en utvecklingsidé från småbarnspedagogikens vardag? Ta kontakt, så pratar vi vidare.
+    topic: tuokiot

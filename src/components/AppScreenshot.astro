@@ -1,0 +1,25 @@
+---
+import { withBase } from '../i18n/utils';
+interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+const { src, alt, caption, width, height } = Astro.props;
+---
+
+<figure class="app-screenshot">
+  <div class="app-screenshot__frame">
+    <img src={withBase(src)} alt={alt} width={width} height={height} decoding="async" />
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .app-screenshot { width: min(100%, 20rem); margin-inline: auto; }
+  .app-screenshot__frame { overflow: hidden; border: 7px solid var(--graniitti); border-radius: 1.8rem; background: var(--pinta); box-shadow: var(--shadow); }
+  img { display: block; width: 100%; height: auto; }
+  figcaption { margin-top: var(--space-s); text-align: center; font-size: var(--step--1); line-height: 1.5; color: var(--teras); }
+</style>
