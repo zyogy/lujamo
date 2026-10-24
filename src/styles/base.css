@@ -10,6 +10,8 @@
 }
 
 html {
+  /* Preserve the designed palette in browsers with automatic darkening. */
+  color-scheme: only light;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   font-size: 106.25%; /* 17px */
@@ -266,6 +268,9 @@ a:hover {
   justify-content: center;
   gap: 0.6em;
   min-height: 3rem;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
   padding: 0.7rem 1.5rem;
   border: 2px solid var(--sammal);
   border-radius: 999px;

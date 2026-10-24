@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .claude/
+.codex-remote-attachments/
 .env
 .env.*
 !.env.example

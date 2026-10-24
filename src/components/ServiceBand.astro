@@ -50,8 +50,15 @@ const headingId = `service-${unit.id}`;
   .service__grid {
     position: relative;
     display: grid;
+    /* Allow the content to shrink below its intrinsic width on phones. */
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-2xl);
     align-items: center;
+  }
+
+  .service__text,
+  .service__media {
+    min-width: 0;
   }
 
   h2 {
@@ -83,6 +90,8 @@ const headingId = `service-${unit.id}`;
     align-items: center;
     gap: 0.6rem;
     font-weight: 600;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 
   .service__list li::before {
@@ -96,7 +105,7 @@ const headingId = `service-${unit.id}`;
 
   @media (min-width: 56em) {
     .service__grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>
