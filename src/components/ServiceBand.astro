@@ -1,6 +1,5 @@
 ---
 /** Full-width deep-green band presenting a service (front page). */
-import ValmiusTurvaPreview from './ValmiusTurvaPreview.astro';
 import ContourLines from './ContourLines.astro';
 import type { Lang } from '../i18n/config';
 import { unitPath, type Unit } from '../lib/content';
@@ -19,9 +18,11 @@ const headingId = `service-${unit.id}`;
 <section class="band-dark service" aria-labelledby={headingId}>
   <ContourLines />
   <div class="container service__grid">
-    <div class="service__text">
+    <div class="service__heading">
       <p class="eyebrow">{unit.name}</p>
       <h2 id={headingId}>{heading}</h2>
+    </div>
+    <div class="service__text">
       <p class="service__lead">{text}</p>
       {
         unit.highlights && (
@@ -33,9 +34,6 @@ const headingId = `service-${unit.id}`;
         )
       }
       <a class="button" href={unitPath(unit, lang)}>{button}</a>
-    </div>
-    <div class="service__media">
-      <ValmiusTurvaPreview lang={lang} />
     </div>
   </div>
 </section>
@@ -57,7 +55,7 @@ const headingId = `service-${unit.id}`;
   }
 
   .service__text,
-  .service__media {
+  .service__heading {
     min-width: 0;
   }
 
@@ -68,7 +66,6 @@ const headingId = `service-${unit.id}`;
   }
 
   .service__lead {
-    margin-top: var(--space-m);
     color: var(--on-dark-muted);
     font-size: var(--step-1);
     line-height: 1.55;
